@@ -118,7 +118,7 @@
         <div id="navbarContainer" class="container">
             <!-- Logo -->
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img src="{{ asset('templates/img/logo.png') }}" alt="Logo" />
+                <img src="{{ asset('templates/img/logo.png') }}" class="text-primary" alt="Logo" />
             </a>
 
             <!-- Mobile Toggle -->
