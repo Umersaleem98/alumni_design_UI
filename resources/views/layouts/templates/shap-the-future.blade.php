@@ -79,7 +79,7 @@
 
         <!-- Heading Text -->
         <div class="text-center text-white mb-5 px-3">
-            <h2 class="fw-bold text-light mb-2">Shape the <span style="color: #FBAF17">Future of NUST</span></h2>
+            <h1 class="fw-bold text-light mb-2">Shape the <span style="color: #FBAF17">Future of NUST</span></h1>
             <h5 class="fw-semibold text-light mb-3">
                 Make a Difference, Connect, and Give Back
             </h5>
@@ -137,7 +137,19 @@
                 </div>
             </div>
 
+
         </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-auto">
+                <a href="#" class="btn btn-danger btn-lg fs-5 px-6 py-3 fw-semibold">
+                    Explore More
+                </a>
+            </div>
+        </div>
+
+
+    </div>
+
 
     </div>
 </section>

@@ -128,44 +128,6 @@
         padding: 2rem 1rem;
     }
 
-    /* .chapter-card {
-        border: 3px solid #6A0901;
-        transition: all 0.3s ease-in-out;
-    } */
-
-    /* .chapter-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-    } */
-
-    /* =========================
-       Custom Hollow Tabs Styling
-       ========================= */
-    /* .nav-tabs {
-        border-bottom: none;
-        gap: 1rem;
-    }
-
-    .nav-tabs .nav-link {
-        border: 2px solid #01273E;
-        color: #01273E;
-        background-color: transparent;
-        border-radius: 30px;
-        padding: 10px 28px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-    }
-
-    .nav-tabs .nav-link:hover {
-        background-color: rgba(1, 39, 62, 0.1);
-    }
-
-    .nav-tabs .nav-link.active {
-        background-color: #01273E;
-        color: #ffffff;
-        border-color: #01273E;
-    } */
-
     .page-header {
         position: relative;
         /* needed for the overlay positioning */
@@ -201,7 +163,7 @@
     <!-- Page Header -->
     <div class="container-fluid page-header py-5">
         <div class="container">
-            <h2 class="mb-3 animated text-light slideInDown">Alumni Community</h2>
+            <h1 class="mb-3 animated text-light slideInDown">Alumni Community</h1>
             <p class="mb-3">
                 A global community of NUST graduates connected by shared journeys and lifelong bonds.
             </p>
@@ -349,12 +311,12 @@
             <!-- Tabs -->
             <ul class="nav nav-tabs justify-content-center mb-4" id="chapterTabs">
                 <li class="nav-item">
-                    <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#national">
+                    <button class="nav-link fs-5 active" data-bs-toggle="tab" data-bs-target="#national">
                         National Chapters
                     </button>
                 </li>
                 <li class="nav-item">
-                    <button class="nav-link" data-bs-toggle="tab" data-bs-target="#international">
+                    <button class="nav-link fs-5" data-bs-toggle="tab" data-bs-target="#international">
                         International Chapters
                     </button>
                 </li>

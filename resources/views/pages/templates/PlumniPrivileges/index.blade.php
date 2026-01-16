@@ -156,12 +156,12 @@
     <!-- Page Header -->
     <div class="container-fluid page-header py-5">
         <div class="container">
-            <h2 class="mb-3 animated text-light slideInDown">Alumni Privileges</h2>
+            <h1 class="mb-3 animated text-light slideInDown">Alumni Privileges</h1>
             <p class="mb-3 text-light">
-                Access Lifelong benifites, Facilities, and Exclusive opportunities
+                Access lifelong benifits, facilities, and exclusive opportunities
             </p>
             <p class="mb-3 text-light">
-                All Privileges unlocked Through your Alumni Card
+                All privileges unlocked through your alumni card
             </p>
             {{-- <button class="btn btn-danger btn-sm">View Upcoming Events</button> --}}
         </div>
@@ -197,9 +197,9 @@
 
                 <!-- Right: Points + Button -->
                 <div class="col-md-7">
-                    <h1 class="mb-3">Join the NUST <span style="color: #FBAF17">Alumni Network</span> </h1>
+                    <h1 class="mb-3">Join the NUST <span style="color: #FBAF17">Alumnix Network</span> </h1>
 
-                    <ul class="list-unstyled alumni-points mb-4 fs-5">
+                    <ul class="list-unstyled alumni-points mb-4 fs-6">
                         <li class="mb-2">✔ <strong>Seamless Access –</strong> Enjoy priority access to facilities,
                             events, and alumni-only services.</li>
                         <li class="mb-2">✔ <strong>Exclusive Benefits –</strong> Avail special offers, discounts, and
@@ -207,6 +207,7 @@
                         <li class="mb-2">✔ <strong>Official Recognition –</strong> Stay connected to NUST with a
                             verified alumni identity.</li>
                     </ul>
+
 
                     <a href="#" class="btn btn-danger px-4" style="border-radius: 8px;">
                         Get Your Alumni Card
@@ -417,7 +418,7 @@
         <div class="container">
 
             <div class="text-center mb-4">
-                <h1>Alumni Card <span style="color: #FBAF17">Discount</span> </h1>
+                <h1 class="text-light">Alumni Card <span style="color: #FBAF17">Discounts</span> </h1>
                 <p>Exclusive offers for our Alumni</p>
             </div>
 
@@ -480,9 +481,14 @@
                             class="btn btn-danger px-4" style="border-radius: 8px;">
                             Apply Now
                         </a>
+                        <a href="https://share.google/4lwzdGAKWnaRCAiIA" target="_blank" rel="noopener noreferrer"
+                            class="btn btn-danger px-4" style="border-radius: 8px;">
+                            Apply Now
+                        </a>
 
                     </div>
                 </div>
+
 
             </div>
 

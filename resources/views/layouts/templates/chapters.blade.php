@@ -101,20 +101,20 @@
 
         <!-- Title -->
         <div class="text-center mb-4">
-            <h2 class="fw-bold text-light">
-                Bringing NUST Alumni Together Worldwide
-            </h2>
+            <h1 class="fw-bold text-light">
+                Bringing NUST Alumni <span style="color: #FBAF17">Together Worldwide</span>
+            </h1>
         </div>
 
         <!-- Tabs -->
         <ul class="nav nav-tabs justify-content-center mb-4" id="chapterTabs">
             <li class="nav-item">
-                <button class="nav-link active btn-" data-bs-toggle="tab" data-bs-target="#national">
+                <button class="nav-link active fs-5 btn-" data-bs-toggle="tab" data-bs-target="#national">
                     National Chapters
                 </button>
             </li>
             <li class="nav-item">
-                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#international">
+                <button class="nav-link fs-5" data-bs-toggle="tab" data-bs-target="#international">
                     International Chapters
                 </button>
             </li>

@@ -91,7 +91,7 @@
     <!-- Page Header -->
     <div class="container-fluid page-header mb-5 py-5">
         <div class="container">
-            <h2 class="mb-3 animated text-light slideInDown">Giving Back</h2>
+            <h1 class="mb-3 animated text-light slideInDown">Giving Back</h1>
             <p class="mb-3 text-light">
                 Empowering others, building meaningful legacies, and shaping the future of those who follow.
             </p>

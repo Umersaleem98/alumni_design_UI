@@ -28,7 +28,7 @@
             <div class="col-md-8 mb-4 d-flex flex-column">
 
                 <!-- Event List -->
-                <h4 class="text-danger mb-3">Upcoming Events</h4>
+                <h2 class="text-danger mb-3">Upcoming Events</h2>
                 <div id="eventList" class="list-group mb-4" style="max-height: 300px; overflow-y: auto;">
                     <!-- Event items inserted here -->
                 </div>

@@ -36,7 +36,7 @@
     <!-- Page Header -->
     <div class="container-fluid page-header mb-3 py-3">
         <div class="container">
-            <h2 class="mb-3 animated text-light slideInDown">About Us</h2>
+            <h1 class="mb-3 animated text-light slideInDown">About Us</h1>
             <p class="mb-3">
                 Strengthening connections, building community, and supporting alumni for life.
             </p>

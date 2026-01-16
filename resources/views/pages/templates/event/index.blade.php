@@ -126,11 +126,11 @@
     <!-- Page Header -->
     <div class="container-fluid page-header mb-5 py-5">
         <div class="container">
-            <h2 class="mb-3 animated text-light slideInDown">Alumni Events & Gatherings</h2>
+            <h1 class="mb-3 animated text-light slideInDown">Alumni Events & Gatherings</h1>
             <p class="mb-3">
                 Bringing NUST Alumni together through professional, social, and community events across chapters.
             </p>
-            <button class="btn btn-danger">View Upcoming Events</button>
+            <button class="btn btn-danger fs-5">View Upcoming Events</button>
         </div>
     </div>
 
@@ -175,7 +175,7 @@
 
                     <div class="bg-dark p-3 text-center rounded">
                         <span class="text-light me-3">Want to stay updated on upcoming events?</span>
-                        <a href="#" class="btn btn-danger " style="border-radius: 8px;">Register on Alumni
+                        <a href="#" class="btn btn-danger fs-4" style="border-radius: 8px;">Register on Alumni
                             Portal &gt;</a>
                     </div>
                 </div>
@@ -218,7 +218,7 @@
                         <li>✔ Dinner & Social Meetup</li>
                     </ul>
 
-                    <a href="#" class="btn btn-danger mt-3" style="border-radius: 8px;">View Full Event</a>
+                    <a href="#" class="btn btn-danger fs-4 mt-3" style="border-radius: 8px;">View Full Event</a>
                 </div>
 
             </div>
@@ -304,7 +304,8 @@
                 chapter activities, and gatherings.
             </p>
 
-            <a href="#" class="btn btn-danger px-4 py-2" style="border-radius: 8px;">
+            <a href="{{ route('register.index') }}" class="btn btn-danger fs-4 px-4 py-2"
+                style="border-radius: 8px;">
                 Register on Alumni Portal &nbsp;›
             </a>
 
