@@ -209,7 +209,8 @@
                     </ul>
 
 
-                    <a href="#" class="btn btn-danger px-4" style="border-radius: 8px;">
+                    <a href="{{ route('register.index') }}" class="btn btn-danger fs-4 px-4"
+                        style="border-radius: 8px;">
                         Get Your Alumni Card
                     </a>
                 </div>
@@ -344,7 +345,8 @@
 
             <!-- CTA Button -->
             <div class="mt-5">
-                <a href="{{ route('register.index') }}" class="btn btn-danger px-5 py-2" style="border-radius: 8px;">
+                <a href="{{ route('register.index') }}" class="btn fs-4 btn-danger px-5 py-2"
+                    style="border-radius: 8px;">
                     Avail Now &nbsp;›
                 </a>
             </div>
@@ -450,7 +452,8 @@
 
             <!-- Section Heading -->
             <div class="text-center mb-5">
-                <h1 class="">Transcript & <span style="color: #FBAF17">Degree Verification</span> </h1>
+                <h1 class="">Academic Documents &<span style="color: #FBAF17"> Verification Services</span>
+                </h1>
 
             </div>
 
@@ -469,21 +472,22 @@
                     <div class="apply-card shadow-sm p-4 bg-white rounded">
 
                         <h4 class=" mb-3">
-                            Apply for Degree <span style="color: #FBAF17">Verification</span>
+                            Academic Documents & <span style="color: #FBAF17">Verification</span>
                         </h4>
 
                         <p class="mb-4 text-muted">
-                            Request official transcripts and degree verification quickly and securely through our
-                            trusted alumni services , designed to support your academic and professional needs.
+                            Request official academic documents and verification services with ease. From certificate
+                            issuance to degree and transcript verification, our trusted process ensures accuracy,
+                            security, and timely support.
                         </p>
 
                         <a href="https://share.google/4lwzdGAKWnaRCAiIA" target="_blank" rel="noopener noreferrer"
                             class="btn btn-danger px-4" style="border-radius: 8px;">
-                            Apply Now
+                            Request Certificate
                         </a>
                         <a href="https://share.google/4lwzdGAKWnaRCAiIA" target="_blank" rel="noopener noreferrer"
                             class="btn btn-danger px-4" style="border-radius: 8px;">
-                            Apply Now
+                            Trascript Verification
                         </a>
 
                     </div>

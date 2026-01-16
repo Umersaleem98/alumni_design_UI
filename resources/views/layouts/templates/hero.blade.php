@@ -66,8 +66,8 @@
                                 meaningful opportunities.
                             </p>
 
-                            <a href="#" class="btn fs-5 btn-warning px-4 me-2 animated slideInLeft"
-                                style="border-radius: 8px;">
+                            <a href="{{ route('register.index') }}"
+                                class="btn fs-5 btn-warning px-4 me-2 animated slideInLeft" style="border-radius: 8px;">
                                 Become a Part
                             </a>
 
@@ -99,8 +99,8 @@
                                 across Pakistan and around the world.
                             </p>
 
-                            <a href="#" class="btn fs-5 btn-warning px-4 me-2 animated slideInLeft"
-                                style="border-radius: 8px;">
+                            <a href="{{ route('alumni.connect.index') }}"
+                                class="btn fs-5 btn-warning px-4 me-2 animated slideInLeft" style="border-radius: 8px;">
                                 Explore More
                             </a>
 
@@ -131,8 +131,8 @@
                                 and engagement opportunities — all in one place.
                             </p>
 
-                            <a href="#" class="btn fs-5 btn-warning px-4 me-2 animated slideInLeft"
-                                style="border-radius: 8px;">
+                            <a href="{{ route('register.index') }}"
+                                class="btn fs-5 btn-warning px-4 me-2 animated slideInLeft" style="border-radius: 8px;">
                                 Get Your Alumni Card
                             </a>
 

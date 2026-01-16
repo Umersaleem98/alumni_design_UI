@@ -5,25 +5,25 @@
         top: 0;
         z-index: 1030;
         transition: background-color 0.3s ease;
-        background-color: white;
+        background-color: #01273e;
     }
 
     /* ===== Desktop Nav Links ===== */
-    .navbar-nav .nav-link {
+    .navbar-nav .nav-link.text-light {
         padding: 0.4rem 0.6rem;
         font-weight: 500;
         position: relative;
-        color: #000;
+        color: #fff;
         transition: color 0.3s ease;
     }
 
     /* ===== Active & Hover ===== */
-    .navbar-nav .nav-link.active,
-    .navbar-nav .nav-link:hover {
-        color: #dc3545 !important;
+    .navbar-nav .nav-link.text-light:hover,
+    .navbar-nav .nav-link.text-light.active {
+        color: #FBAF17 !important;
     }
 
-    .navbar-nav .nav-link.active::after {
+    .navbar-nav .nav-link.text-light.active::after {
         content: '';
         position: absolute;
         left: 0;
@@ -31,29 +31,29 @@
         width: 100%;
         height: 2px;
         border-radius: 1px;
-        background-color: #dc3545;
+        /* background-color: #FBAF17; */
     }
 
     /* ===== Mobile Nav Links ===== */
-    .offcanvas .nav-link {
+    .offcanvas .nav-link.text-light {
         padding: 0.6rem 0;
         font-weight: 500;
-        color: #000;
+        color: #fff;
     }
 
-    .offcanvas .nav-link.active {
-        color: #dc3545;
+    .offcanvas .nav-link.text-light.active {
+        color: #FBAF17;
     }
 
     /* Responsive Logo */
     .navbar-brand img {
+        padding: 10px;
         max-width: 100%;
-        height: auto;
+        height: 50px;
         width: 80px;
         transition: width 0.3s ease;
     }
 
-    /* Adjust logo size for smaller screens */
     @media (max-width: 992px) {
         .navbar-brand img {
             width: 100px;
@@ -66,11 +66,10 @@
         }
     }
 
-    /* Smooth width transition for navbar container */
+    /* Smooth width transition */
     #navbarContainer {
         transition: max-width 0.5s ease;
         max-width: 1140px;
-        /* default max-width of .container */
         margin-left: auto;
         margin-right: auto;
     }
@@ -84,18 +83,19 @@
     }
 </style>
 
-<div class="container-fluid bg-primary d-none d-lg-block">
+<!-- ===== TOP LIGHT BAR ===== -->
+<div class="container-fluid bg-light d-none d-lg-block">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center py-2">
 
             <div class="d-flex align-items-center">
                 <div class="me-4 d-flex align-items-center">
-                    <i class="fa fa-phone-alt text-light me-2"></i>
-                    <span class="text-light">051-90856838</span>
+                    <i class="fa fa-phone-alt text-dark me-2"></i>
+                    <span class="text-dark">051-90856838</span>
                 </div>
                 <div class="d-flex align-items-center">
-                    <i class="far fa-envelope text-light me-2"></i>
-                    <span class="text-light">info@alumni.nust.edu.pk</span>
+                    <i class="far fa-envelope text-dark me-2"></i>
+                    <span class="text-dark">info@alumni.nust.edu.pk</span>
                 </div>
             </div>
 
@@ -112,18 +112,18 @@
     </div>
 </div>
 
-<div class="container-fluid bg-white shadow-sm sticky-navbar">
-    <nav class="navbar navbar-expand-lg navbar-light py-1">
-        <!-- IMPORTANT: container class here will be toggled -->
+<!-- ===== MAIN NAVBAR ===== -->
+<div class="container-fluid sticky-navbar shadow-sm" style="background-color: #162955 ">
+    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #162955 ">
         <div id="navbarContainer" class="container">
+
             <!-- Logo -->
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img src="{{ asset('templates/img/logo.png') }}" class="text-primary" alt="Logo" />
+                <img src="{{ asset('templates/img/logo.png') }}" alt="Logo">
             </a>
 
-            <!-- Mobile Toggle -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu"
-                aria-controls="mobileMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Toggle -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -131,67 +131,54 @@
             <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
                 <ul class="navbar-nav text-center">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                        <a class="nav-link text-light {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('event.*') ? 'active' : '' }}"
+                        <a class="nav-link text-light {{ request()->routeIs('event.*') ? 'active' : '' }}"
                             href="{{ route('event.index') }}">Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('alumni.connect.*') ? 'active' : '' }}"
+                        <a class="nav-link text-light {{ request()->routeIs('alumni.connect.*') ? 'active' : '' }}"
                             href="{{ route('alumni.connect.index') }}">Alumni Community</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('alumni.privileges.*') ? 'active' : '' }}"
+                        <a class="nav-link text-light {{ request()->routeIs('alumni.privileges.*') ? 'active' : '' }}"
                             href="{{ route('alumni.privileges.index') }}">Alumni Privileges</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('nust.giving.back.*') ? 'active' : '' }}"
+                        <a class="nav-link text-light {{ request()->routeIs('nust.giving.back.*') ? 'active' : '' }}"
                             href="{{ route('nust.giving.back.index') }}">Giving Back</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->routeIs('about.*') ? 'active' : '' }}"
+                        <a class="nav-link text-light {{ request()->routeIs('about.*') ? 'active' : '' }}"
                             href="{{ route('about.index') }}">About</a>
                     </li>
                 </ul>
             </div>
+
         </div>
     </nav>
 </div>
 
-<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" aria-labelledby="mobileMenuLabel">
-    <div class="offcanvas-header">
-        <h5 class="offcanvas-title text-primary fw-bold" id="mobileMenuLabel">Menu</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+<!-- ===== MOBILE MENU ===== -->
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" style="background:#01273e">
+    <div class="offcanvas-header" style="background:#162955">
+        <h5 class="offcanvas-title fw-bold text-light">Menu</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
 
     <div class="offcanvas-body">
         <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
-                    href="{{ route('home') }}">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('event.*') ? 'active' : '' }}"
-                    href="{{ route('event.index') }}">Event</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('alumni.connect.*') ? 'active' : '' }}"
-                    href="{{ route('alumni.connect.index') }}">Alumni Community</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('alumni.privileges.*') ? 'active' : '' }}"
-                    href="{{ route('alumni.privileges.index') }}">Alumni Privileges</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('nust.giving.back.*') ? 'active' : '' }}"
-                    href="{{ route('nust.giving.back.index') }}">Giving Back</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link {{ request()->routeIs('about.*') ? 'active' : '' }}"
-                    href="{{ route('about.index') }}">About</a>
-            </li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('home') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('event.index') }}">Event</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('alumni.connect.index') }}">Alumni
+                    Community</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('alumni.privileges.index') }}">Alumni
+                    Privileges</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('nust.giving.back.index') }}">Giving
+                    Back</a></li>
+            <li class="nav-item"><a class="nav-link text-light" href="{{ route('about.index') }}">About</a></li>
         </ul>
     </div>
 </div>
@@ -202,15 +189,9 @@
 
         window.addEventListener('scroll', function() {
             if (window.scrollY > 50) {
-                // Replace container with container-fluid
-                if (navbarContainer.classList.contains('container')) {
-                    navbarContainer.classList.replace('container', 'container-fluid');
-                }
+                navbarContainer.classList.replace('container', 'container-fluid');
             } else {
-                // Replace container-fluid back to container
-                if (navbarContainer.classList.contains('container-fluid')) {
-                    navbarContainer.classList.replace('container-fluid', 'container');
-                }
+                navbarContainer.classList.replace('container-fluid', 'container');
             }
         });
     });

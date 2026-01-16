@@ -130,7 +130,7 @@
             <p class="mb-3">
                 Bringing NUST Alumni together through professional, social, and community events across chapters.
             </p>
-            <button class="btn btn-danger fs-5">View Upcoming Events</button>
+            {{-- <button class="btn btn-danger fs-5">View Upcoming Events</button> --}}
         </div>
     </div>
 
@@ -175,7 +175,8 @@
 
                     <div class="bg-dark p-3 text-center rounded">
                         <span class="text-light me-3">Want to stay updated on upcoming events?</span>
-                        <a href="#" class="btn btn-danger fs-4" style="border-radius: 8px;">Register on Alumni
+                        <a href="{{ route('register.index') }}" class="btn btn-danger fs-4"
+                            style="border-radius: 8px;">Register on Alumni
                             Portal &gt;</a>
                     </div>
                 </div>
@@ -199,7 +200,7 @@
 
                 <!-- Right: Post Details -->
                 <div class="col-md-6 text-light">
-                    <h3 class="text-light mb-3">Islamabad Alumni <span style="color: #FBAF17">Meetup 2026</span></h3>
+                    <h2 class="text-light mb-3">Islamabad Alumni <span style="color: #FBAF17">Meetup 2026</span></h2>
 
                     <p class="opacity-75 mb-3">
                         📍 Serena Hotel, Islamabad <br>
@@ -218,7 +219,9 @@
                         <li>✔ Dinner & Social Meetup</li>
                     </ul>
 
-                    <a href="#" class="btn btn-danger fs-4 mt-3" style="border-radius: 8px;">View Full Event</a>
+                    <a href="{{ url('https://www.instagram.com/nust_alumni_network?igsh=ams3a3dpM2tjZTY0') }}"
+                        class="btn btn-danger fs-4 mt-3" aria-label="Instagram" target="_blank"
+                        style="border-radius: 8px;">View Full Event</a>
                 </div>
 
             </div>

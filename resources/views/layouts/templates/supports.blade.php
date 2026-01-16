@@ -30,8 +30,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Campus Facilities</h5>
                         <p class="card-text flex-grow-1">
-                            Reconnect with your campus and enjoy access to key facilities, spaces, and services designed
-                            to keep you engaged with the NUST community.
+                            Reconnect with your campus and enjoy access to key facilities, spaces, and services.
                         </p>
                     </div>
                 </div>
@@ -43,8 +42,7 @@
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Lifelong Learning</h5>
                         <p class="card-text flex-grow-1">
-                            Continue to grow with talks, seminars, and learning opportunities that help you stay
-                            informed, inspired, and professionally relevant.
+                            Continue to grow with talks, seminars, and learning opportunities.
                         </p>
                     </div>
                 </div>
@@ -57,12 +55,11 @@
                         <h5 class="card-title">Alumni Card</h5>
                         <p class="card-text flex-grow-1">
                             Your official gateway to alumni privileges, offering access,
-                            recognition, and exclusive benefits across campus and beyond.
+                            recognition, and benefits.
                         </p>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </section>

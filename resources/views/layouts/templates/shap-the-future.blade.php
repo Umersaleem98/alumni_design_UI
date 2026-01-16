@@ -141,7 +141,8 @@
         </div>
         <div class="row justify-content-center mt-4">
             <div class="col-auto">
-                <a href="#" class="btn btn-danger btn-lg fs-5 px-6 py-3 fw-semibold">
+                <a href="{{ route('nust.giving.back.index') }}"
+                    class="btn btn-danger btn-lg fs-5 px-6 py-3 fw-semibold">
                     Explore More
                 </a>
             </div>

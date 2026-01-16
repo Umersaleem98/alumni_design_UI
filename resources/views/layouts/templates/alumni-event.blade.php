@@ -34,54 +34,46 @@
                 </div>
 
                 <!-- Image Gallery -->
+                <!-- Image Gallery -->
                 <h5 class="mb-3">Gallery</h5>
                 <div class="row g-2">
                     <div class="col-4 col-md-2">
-                        <img src="templates/img/event-gallary/CAE-alumni.jpeg" class="img-fluid rounded gallery-img"
-                            alt="Gallery Image 1" data-bs-toggle="modal" data-bs-target="#galleryModal"
-                            data-src="templates/img/event-gallary/CAE-alumni.jpeg" />
+                        <a href="{{ route('event.index') }}">
+                            <img src="templates/img/event-gallary/CAE-alumni.jpeg" class="img-fluid rounded gallery-img"
+                                alt="Gallery Image 1" />
+                        </a>
                     </div>
                     <div class="col-4 col-md-2">
-                        <img src="templates/img/event-gallary/aftarmeetup.jpeg" class="img-fluid rounded gallery-img"
-                            alt="Gallery Image 2" data-bs-toggle="modal" data-bs-target="#galleryModal"
-                            data-src="templates/img/event-gallary/aftarmeetup.jpeg" />
+                        <a href="{{ route('event.index') }}">
+                            <img src="templates/img/event-gallary/aftarmeetup.jpeg"
+                                class="img-fluid rounded gallery-img" alt="Gallery Image 2" />
+                        </a>
                     </div>
                     <div class="col-4 col-md-2">
-                        <img src="templates/img/event-gallary/annual.jpeg" class="img-fluid rounded gallery-img"
-                            alt="Gallery Image 3" data-bs-toggle="modal" data-bs-target="#galleryModal"
-                            data-src="templates/img/event-gallary/annual.jpeg" />
+                        <a href="{{ route('event.index') }}">
+                            <img src="templates/img/event-gallary/annual.jpeg" class="img-fluid rounded gallery-img"
+                                alt="Gallery Image 3" />
+                        </a>
                     </div>
                     <div class="col-4 col-md-2">
-                        <img src="templates/img/event-gallary/global-iftar.jpeg" class="img-fluid rounded gallery-img"
-                            alt="Gallery Image 4" data-bs-toggle="modal" data-bs-target="#galleryModal"
-                            data-src="templates/img/event-gallary/global-iftar.jpeg" />
+                        <a href="{{ route('event.index') }}">
+                            <img src="templates/img/event-gallary/global-iftar.jpeg"
+                                class="img-fluid rounded gallery-img" alt="Gallery Image 4" />
+                        </a>
                     </div>
                     <div class="col-4 col-md-2">
-                        <img src="templates/img/event-gallary/meetup.jpeg" class="img-fluid rounded gallery-img"
-                            alt="Gallery Image 5" data-bs-toggle="modal" data-bs-target="#galleryModal"
-                            data-src="templates/img/event-gallary/meetup.jpeg" />
+                        <a href="{{ route('event.index') }}">
+                            <img src="templates/img/event-gallary/meetup.jpeg" class="img-fluid rounded gallery-img"
+                                alt="Gallery Image 5" />
+                        </a>
                     </div>
-
                 </div>
+
 
             </div>
         </div>
     </div>
 </section>
-
-<!-- Gallery Modal -->
-<div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-            <div class="modal-body p-0">
-                <img src="" alt="Preview" id="galleryModalImg" class="img-fluid w-100 rounded" />
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger btn-sm" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <style>
     .calendar-grid {
@@ -139,7 +131,7 @@
         width: 100%;
         height: 100px;
         object-fit: cover;
-        cursor: pointer;
+        cursor: default;
         display: block;
     }
 
@@ -178,7 +170,6 @@
         const prevBtn = document.getElementById('prevMonth');
         const nextBtn = document.getElementById('nextMonth');
         const eventList = document.getElementById('eventList');
-        const galleryModalImg = document.getElementById('galleryModalImg');
 
         let currentDate = new Date(2026, 0, 1); // Start Jan 2026
 
@@ -190,7 +181,7 @@
 
             monthYearLabel.textContent = date.toLocaleString('default', {
                 month: 'long',
-                year: 'numeric'
+                year: 'numeric',
             });
 
             const firstDayIndex = new Date(year, month, 1).getDay();
@@ -209,31 +200,26 @@
             for (let day = 1; day <= daysInMonth; day++) {
                 const dayDiv = document.createElement('div');
                 dayDiv.classList.add('day');
-                const fullDateStr =
-                    `${year}-${String(month + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+                const fullDateStr = `${year}-${String(month + 1).padStart(2, '0')}-${String(
+          day
+        ).padStart(2, '0')}`;
                 dayDiv.textContent = day;
 
                 const today = new Date();
-                if (year === today.getFullYear() && month === today.getMonth() && day === today.getDate()) {
+                if (
+                    year === today.getFullYear() &&
+                    month === today.getMonth() &&
+                    day === today.getDate()
+                ) {
                     dayDiv.classList.add('today');
                 }
 
                 if (events.some(e => e.date === fullDateStr)) {
                     dayDiv.classList.add('event');
-                    dayDiv.title = events.filter(e => e.date === fullDateStr).map(e => e.title).join(', ');
-                    dayDiv.addEventListener('click', () => {
-                        const eventElem = document.querySelector(`[data-date="${fullDateStr}"]`);
-                        if (eventElem) {
-                            eventElem.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'center'
-                            });
-                            eventElem.classList.add('bg-danger', 'text-white');
-                            setTimeout(() => {
-                                eventElem.classList.remove('bg-danger', 'text-white');
-                            }, 1500);
-                        }
-                    });
+                    dayDiv.title = events
+                        .filter(e => e.date === fullDateStr)
+                        .map(e => e.title)
+                        .join(', ');
                     dayDiv.style.cursor = 'pointer';
                 }
 
@@ -279,14 +265,6 @@
                 eventList.appendChild(item);
             });
         }
-
-        // Gallery image click to update modal image
-        document.querySelectorAll('.gallery-img').forEach(img => {
-            img.addEventListener('click', e => {
-                const src = e.target.getAttribute('data-src');
-                galleryModalImg.src = src;
-            });
-        });
 
         // Navigation buttons
         prevBtn.addEventListener('click', () => {
