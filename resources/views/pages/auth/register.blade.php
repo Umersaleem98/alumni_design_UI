@@ -1,264 +1,269 @@
 @include('layouts.templates.head')
-<title>Register</title>
 
 <style>
-    body {
-        background: #00253D;
-    }
-
-    /* ===== Step Indicator ===== */
-    .stepper {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 40px;
-    }
-
-    .stepper-item {
-        text-align: center;
-        flex: 1;
-        position: relative;
-    }
-
-    .stepper-item::after {
-        content: '';
-        position: absolute;
-        top: 20px;
-        left: 50%;
-        width: 100%;
-        height: 2px;
-        background: #e0e0e0;
-        z-index: 0;
-    }
-
-    .stepper-item:last-child::after {
-        display: none;
-    }
-
-    .step-circle {
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        background: #e0e0e0;
-        margin: 0 auto;
+    .register-wrapper {
+        min-height: 500px;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: 600;
-        z-index: 1;
-        position: relative;
     }
 
-    .stepper-item.active .step-circle {
-        background: #800000;
+    .register-card {
+        background: #01273E;
+        border-radius: 16px;
         color: #fff;
     }
 
-    .step-label {
-        margin-top: 8px;
-        font-size: 14px;
-        font-weight: 500;
+    .step-image {
+        text-align: center;
+        opacity: 0;
     }
 
-    /* ===== Steps ===== */
-    .step {
+    .step-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+    }
+
+    .step-form {
+        opacity: 0;
+    }
+
+    .form-step {
         display: none;
     }
 
-    .step.active {
+    .form-step.active {
         display: block;
+    }
+
+    .form-step.active .step-form {
+        animation: fadeUp 0.6s ease forwards;
+    }
+
+    .form-step.active .img-left {
+        animation: slideLeft 0.7s ease forwards;
+    }
+
+    .form-step.active .img-right {
+        animation: slideRight 0.7s ease forwards;
+    }
+
+    @keyframes slideLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .step-indicator span {
+        width: 30px;
+        height: 30px;
+        background: #6c757d;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 0 4px;
+        font-size: 13px;
+    }
+
+    .step-indicator span.active {
+        background: #FBAF17;
+        color: #000;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+        {
+        font-size: 13px;
     }
 </style>
 
 <body>
-
     @include('layouts.templates.header')
 
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-lg-9">
+    <div class="container mt-2 p-5">
+        <div class="register-wrapper">
+            <div class="row w-100 justify-content-center">
+                <div class="col-xl-9 col-lg-10 col-md-11">
 
-                <!-- ===== STEPPER ===== -->
-                <div class="stepper">
-                    <div class="stepper-item active">
-                        <div class="step-circle">1</div>
-                        <div class="step-label">Personal</div>
-                    </div>
-                    <div class="stepper-item">
-                        <div class="step-circle">2</div>
-                        <div class="step-label">Education</div>
-                    </div>
-                    <div class="stepper-item">
-                        <div class="step-circle">3</div>
-                        <div class="step-label">Professional</div>
-                    </div>
-                    <div class="stepper-item">
-                        <div class="step-circle">4</div>
-                        <div class="step-label">Security</div>
-                    </div>
-                </div>
+                    <div class="register-card shadow-lg p-5 p-md-5">
 
-                <!-- ===== FORM CARD ===== -->
-                <div class="card shadow-sm border-0">
-                    <div class="card-body">
+                        <h4 class="mb-3 text-center text-light">Create Account</h4>
 
-                        <form method="POST" action="#">
-                            @csrf
+                        <div class="step-indicator text-center mb-4">
+                            <span class="active">1</span>
+                            <span>2</span>
+                            <span>3</span>
+                            <span>4</span>
+                            <span>5</span>
+                        </div>
 
-                            <!-- ================= STEP 1 ================= -->
-                            <div class="step active">
-                                <h5 class="mb-3">Personal Information</h5>
+                        <form id="multiStepForm">
 
-                                <div class="row">
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Full Name"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="CNIC / Passport No"></div>
-                                    <div class="col-md-6 mb-3"><input type="email" class="form-control"
-                                            placeholder="Personal Email"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Mobile Number"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Current Country"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Current City"></div>
-                                </div>
-
-                                <button type="button" class="btn btn-danger next-step">Next</button>
-                            </div>
-
-                            <!-- ================= STEP 2 ================= -->
-                            <div class="step">
-                                <h5 class="mb-3">Education</h5>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="NUST Registration Number"></div>
-                                    <div class="col-md-6 mb-3">
-                                        <select class="form-select">
-                                            <option>Degree Level</option>
-                                            <option>Bachelors</option>
-                                            <option>Masters</option>
-                                            <option>PhD</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="School"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Discipline"></div>
-                                    <div class="col-md-6 mb-3"><input type="number" class="form-control"
-                                            placeholder="Enrolment Year"></div>
-                                    <div class="col-md-6 mb-3"><input type="number" class="form-control"
-                                            placeholder="Graduation Year"></div>
-                                </div>
-
-                                <button type="button" class="btn btn-secondary prev-step">Previous</button>
-                                <button type="button" class="btn btn-danger next-step">Next</button>
-                            </div>
-
-                            <!-- ================= STEP 3 ================= -->
-                            <div class="step">
-                                <h5 class="mb-3">Professional</h5>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-3">
-                                        <select id="currentStatus" class="form-select">
-                                            <option value="">Current Status</option>
-                                            <option value="employed">Employed</option>
-                                            <option value="self">Self Employed</option>
-                                            <option value="unemployed">Not Currently Employed</option>
-                                        </select>
+                            {{-- STEP 1 --}}
+                            <div class="form-step active">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 text-center">
+                                        <div class="step-image img-left mb-4">
+                                            <img src="{{ asset('templates/img/degreee.jpeg') }}">
+                                        </div>
+                                        <button type="button" class="btn btn-danger btn-lg" id="startBtn">
+                                            Start
+                                        </button>
                                     </div>
                                 </div>
-
-                                <!-- Conditional Fields -->
-                                <div class="row d-none" id="employmentFields">
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Organization"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Industry"></div>
-                                    <div class="col-md-6 mb-3"><input type="text" class="form-control"
-                                            placeholder="Designation"></div>
-                                </div>
-
-                                <button type="button" class="btn btn-secondary prev-step">Previous</button>
-                                <button type="button" class="btn btn-danger next-step">Next</button>
                             </div>
 
-                            <!-- ================= STEP 4 ================= -->
-                            <div class="step">
-                                <h5 class="mb-3">Security</h5>
-
-                                <div class="row">
-                                    <div class="col-md-6 mb-3"><input type="password" class="form-control"
-                                            placeholder="Password"></div>
-                                    <div class="col-md-6 mb-3"><input type="password" class="form-control"
-                                            placeholder="Confirm Password"></div>
+                            {{-- STEP 2 --}}
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-image img-left">
+                                        <img src="{{ asset('templates/img/register/a.jpeg') }}">
+                                    </div>
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Personal Information</h6>
+                                        <input class="form-control  mb-4" placeholder="Full Name">
+                                        <input class="form-control  mb-4" placeholder="Email">
+                                        <input class="form-control  mb-4" placeholder="Phone">
+                                        <input type="date" class="form-control ">
+                                    </div>
                                 </div>
+                            </div>
 
-                                <div class="form-check mb-3">
-                                    <input class="form-check-input" type="checkbox" required>
-                                    <label class="form-check-label">
-                                        I agree to the Terms & Conditions
-                                    </label>
+                            {{-- STEP 3 --}}
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Education</h6>
+                                        <input class="form-control  mb-4" placeholder="Qualification">
+                                        <input class="form-control  mb-4" placeholder="Institute">
+                                        <input class="form-control  mb-4" placeholder="Passing Year">
+                                        <input class="form-control " placeholder="CGPA / Grade">
+                                    </div>
+                                    <div class="col-md-6 step-image img-right">
+                                        <img src="{{ asset('templates/img/register/a.jpeg') }}">
+                                    </div>
                                 </div>
+                            </div>
 
-                                <button type="button" class="btn btn-secondary prev-step">Previous</button>
-                                <button type="submit" class="btn btn-warning">Register</button>
+                            {{-- STEP 4 --}}
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-image img-left">
+                                        <img src="{{ asset('templates/img/register/a.jpeg') }}">
+                                    </div>
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Professional</h6>
+                                        <input class="form-control  mb-4" placeholder="Profession">
+                                        <input class="form-control  mb-4" placeholder="Experience">
+                                        <input class="form-control  mb-4" placeholder="Company">
+                                        <input class="form-control " placeholder="Location">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- STEP 5 --}}
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Security</h6>
+                                        <input type="password" class="form-control  mb-4" placeholder="Password">
+                                        <input type="password" class="form-control " placeholder="Confirm Password">
+                                    </div>
+                                    <div class="col-md-6 step-image img-right">
+                                        <img src="{{ asset('templates/img/register/a.jpeg') }}">
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{-- NAVIGATION --}}
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-secondary" id="prevBtn">Previous</button>
+                                <button type="button" class="btn btn-danger" id="nextBtn">Next</button>
                             </div>
 
                         </form>
-
                     </div>
-                </div>
 
+                </div>
             </div>
         </div>
     </div>
 
-    @include('layouts.templates.footer')
-    @include('layouts.templates.script')
-
     <script>
-        const steps = document.querySelectorAll('.step');
-        const stepperItems = document.querySelectorAll('.stepper-item');
+        const steps = document.querySelectorAll('.form-step');
+        const indicators = document.querySelectorAll('.step-indicator span');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const startBtn = document.getElementById('startBtn');
+
         let currentStep = 0;
 
-        function showStep(index) {
-            steps.forEach(step => step.classList.remove('active'));
-            stepperItems.forEach(item => item.classList.remove('active'));
-            steps[index].classList.add('active');
-            stepperItems[index].classList.add('active');
+        function updateSteps() {
+            steps.forEach((step, i) => {
+                step.classList.toggle('active', i === currentStep);
+                indicators[i].classList.toggle('active', i === currentStep);
+            });
+
+            prevBtn.style.display = currentStep <= 1 ? 'none' : 'inline-block';
+            nextBtn.style.display = currentStep === 0 ? 'none' : 'inline-block';
+            nextBtn.innerText = currentStep === steps.length - 1 ? 'Submit' : 'Next';
         }
 
-        document.querySelectorAll('.next-step').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep < steps.length - 1) {
-                    currentStep++;
-                    showStep(currentStep);
-                }
-            });
-        });
+        startBtn.onclick = () => {
+            currentStep = 1;
+            updateSteps();
+        };
 
-        document.querySelectorAll('.prev-step').forEach(btn => {
-            btn.addEventListener('click', () => {
-                if (currentStep > 0) {
-                    currentStep--;
-                    showStep(currentStep);
-                }
-            });
-        });
-
-        // ===== Conditional Professional Fields =====
-        const statusSelect = document.getElementById('currentStatus');
-        const employmentFields = document.getElementById('employmentFields');
-
-        statusSelect.addEventListener('change', function() {
-            if (this.value === 'employed' || this.value === 'self') {
-                employmentFields.classList.remove('d-none');
+        nextBtn.onclick = () => {
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateSteps();
             } else {
-                employmentFields.classList.add('d-none');
+                document.getElementById('multiStepForm').submit();
             }
-        });
+        };
+
+        prevBtn.onclick = () => {
+            currentStep--;
+            updateSteps();
+        };
+
+        updateSteps();
     </script>
 
-</body>
+    @include('layouts.templates.footer')
+    @include('layouts.templates.script')

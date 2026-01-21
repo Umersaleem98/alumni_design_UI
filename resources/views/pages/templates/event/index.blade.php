@@ -104,7 +104,7 @@
 
     .alumni-cta {
         background:
-            linear-gradient(rgba(23, 34, 77, 0.9), rgba(23, 34, 77, 0.9)),
+            linear-gradient(rgba(1, 39, 62, 0.88), rgba(1, 39, 62, 0.88)),
             url('{{ asset('templates/img/cta-bg.jpg') }}');
         background-size: cover;
         background-position: center;
@@ -165,7 +165,7 @@
 
                 <!-- Event List -->
                 <div class="col-md-8 d-flex flex-column">
-                    <div class="bg-dark p-1 rounded">
+                    <div class="p-1 rounded" style="background: #01273E">
                         <h4 class="text-light mx-3">Upcoming Events</h4>
                     </div>
 
@@ -173,7 +173,7 @@
                     <div id="eventList" class="list-group mb-4 flex-grow-1" style="overflow-y:auto; max-height:200px;">
                     </div>
 
-                    <div class="bg-dark p-3 text-center rounded">
+                    <div class="p-3 text-center rounded" style="background: #01273E">
                         <span class="text-light me-3">Want to stay updated on upcoming events?</span>
                         <a href="{{ route('register.index') }}" class="btn btn-danger fs-4"
                             style="border-radius: 8px;">Register on Alumni

@@ -128,7 +128,7 @@
 
                             <p class="text-white mb-3 carousel-text">
                                 The alumni portal provides verified access to the alumni directory, digital alumni card,
-                                and engagement opportunities — all in one place.
+                                and engagement opportunities, all in one place.
                             </p>
 
                             <a href="{{ route('register.index') }}"

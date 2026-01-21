@@ -5,7 +5,7 @@
         top: 0;
         z-index: 1030;
         transition: background-color 0.3s ease;
-        background-color: #01273e;
+        background-color: #01273E;
     }
 
     /* ===== Desktop Nav Links ===== */
@@ -49,8 +49,8 @@
     .navbar-brand img {
         padding: 10px;
         max-width: 100%;
-        height: 50px;
-        width: 80px;
+        height: 80px;
+        width: 100px;
         transition: width 0.3s ease;
     }
 
@@ -113,8 +113,8 @@
 </div>
 
 <!-- ===== MAIN NAVBAR ===== -->
-<div class="container-fluid sticky-navbar shadow-sm" style="background-color: #162955 ">
-    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #162955 ">
+<div class="container-fluid sticky-navbar shadow-sm" style="background-color: #01273E ">
+    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #01273E ">
         <div id="navbarContainer" class="container">
 
             <!-- Logo -->
@@ -163,7 +163,7 @@
 
 <!-- ===== MOBILE MENU ===== -->
 <div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" style="background:#01273e">
-    <div class="offcanvas-header" style="background:#162955">
+    <div class="offcanvas-header" style="background:#01273E">
         <h5 class="offcanvas-title fw-bold text-light">Menu</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>

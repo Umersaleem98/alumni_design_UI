@@ -135,7 +135,7 @@
     }
 
     .bg-alumni-discount {
-        background-color: #17224D;
+        background-color: #01273E;
         /* your brand dark blue */
     }
 
@@ -158,7 +158,7 @@
         <div class="container">
             <h1 class="mb-3 animated text-light slideInDown">Alumni Privileges</h1>
             <p class="mb-3 text-light">
-                Access lifelong benifits, facilities, and exclusive opportunities
+                Access lifelong Benefits, facilities, and exclusive opportunities
             </p>
             <p class="mb-3 text-light">
                 All privileges unlocked through your alumni card
@@ -197,7 +197,7 @@
 
                 <!-- Right: Points + Button -->
                 <div class="col-md-7">
-                    <h1 class="mb-3">Join the NUST <span style="color: #FBAF17">Alumnix Network</span> </h1>
+                    <h1 class="mb-3">Join the NUST <span style="color: #FBAF17">Alumni Network</span> </h1>
 
                     <ul class="list-unstyled alumni-points mb-4 fs-6">
                         <li class="mb-2">✔ <strong>Seamless Access –</strong> Enjoy priority access to facilities,
@@ -222,7 +222,7 @@
 
     <style>
         .campus-facilities {
-            background: #0f172a;
+            background: #01273E;
         }
 
 
@@ -427,18 +427,18 @@
             <div class="logo-slider">
                 <div class="logo-track">
 
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
 
                     <!-- duplicate -->
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
-                    <div class="logo-item"><img src="{{ asset('templates/img/logo.jpg') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
+                    <div class="logo-item"><img src="{{ asset('templates/img/logo.png') }}"></div>
 
                 </div>
             </div>

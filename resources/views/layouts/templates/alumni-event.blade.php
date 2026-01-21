@@ -1,7 +1,6 @@
 <section class="py-5">
     <div class="container">
         <div class="row">
-
             <!-- Left: Simple Calendar -->
             <div class="col-md-4 mb-4">
                 <div class="calendar-container p-3 border rounded">
