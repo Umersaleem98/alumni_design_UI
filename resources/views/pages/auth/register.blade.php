@@ -395,8 +395,7 @@
                     <p>If your account is not verified after 3 days, please email us your degree or transcript for
                         manual verification.</p>
                     <br>
-                    <p>If your account is not verified after 3 days, please email us your degree or transcript for
-                        manual verification.</p>
+
 
                 </div>
                 <div class="modal-footer">
