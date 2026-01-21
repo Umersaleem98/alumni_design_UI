@@ -125,23 +125,29 @@
         user-select: none;
     }
 
-    /* For mobile and country code side by side */
-    .mobile-group {
-        display: flex;
-        gap: 8px;
+    /* Password toggle icon styles */
+    .password-wrapper {
+        position: relative;
     }
 
-    .mobile-group select {
-        flex: 0 0 100px;
+    .toggle-password {
+        position: absolute;
+        right: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        color: #555;
+        user-select: none;
     }
 
-    .mobile-group input {
-        flex: 1;
+    /* Hide extra inputs initially */
+    .extra-input {
+        display: none;
     }
 </style>
 
 <body>
-    @include('layouts.templates.header')
+    {{-- @include('layouts.templates.header') --}}
 
     <div class="container mt-2 p-5">
         <div class="register-wrapper">
@@ -196,19 +202,10 @@
                                         <input id="personalEmail" name="personalEmail" type="email"
                                             class="form-control mb-3" placeholder="Personal Email" required>
 
-                                        <label class="text-light">Mobile Number</label>
-                                        <div class="mobile-group mb-3">
-                                            <select id="countryCode" name="countryCode" class="form-control" required>
-                                                <option value="+92" selected>+92 (PK)</option>
-                                                <option value="+1">+1 (US)</option>
-                                                <option value="+44">+44 (UK)</option>
-                                                <option value="+61">+61 (AU)</option>
-                                                <!-- Add more country codes as needed -->
-                                            </select>
-                                            <input id="mobileNumber" name="mobileNumber" type="tel"
-                                                class="form-control" placeholder="Mobile Number" required
-                                                pattern="[0-9]{7,15}" title="Please enter valid number">
-                                        </div>
+                                        <label for="mobileNumber" class="text-light">Mobile Number</label>
+                                        <input id="mobileNumber" name="mobileNumber" type="tel"
+                                            class="form-control mb-3" placeholder="Enter Mobile Number" required
+                                            pattern="[0-9]{7,15}" title="Please enter valid number">
 
                                         <label for="currentCountry" class="text-light">Current Country</label>
                                         <select id="currentCountry" name="currentCountry" class="form-control mb-3"
@@ -218,20 +215,24 @@
                                             <option value="United States">United States</option>
                                             <option value="United Kingdom">United Kingdom</option>
                                             <option value="Australia">Australia</option>
-                                            <!-- Add more countries as needed -->
+                                            <option value="Other">Other</option>
                                         </select>
+                                        <input id="otherCountry" name="otherCountry" type="text"
+                                            class="form-control mb-3 extra-input" placeholder="Enter Country Name">
 
                                         <label for="currentCity" class="text-light">Current City</label>
                                         <select id="currentCity" name="currentCity" class="form-control mb-3" required>
                                             <option value="" disabled selected>Select City</option>
-                                            <!-- Cities could dynamically load based on country selection, example static list: -->
                                             <option value="Karachi">Karachi</option>
                                             <option value="Lahore">Lahore</option>
                                             <option value="Islamabad">Islamabad</option>
                                             <option value="New York">New York</option>
                                             <option value="London">London</option>
                                             <option value="Sydney">Sydney</option>
+                                            <option value="Other">Other</option>
                                         </select>
+                                        <input id="otherCity" name="otherCity" type="text"
+                                            class="form-control mb-3 extra-input" placeholder="Enter City Name">
                                     </div>
                                 </div>
                             </div>
@@ -257,31 +258,37 @@
                                         <label for="school" class="text-light">School</label>
                                         <select id="school" name="school" class="form-control mb-3" required>
                                             <option value="" disabled selected>Select School</option>
-                                            <option value="School of Engineering">School of Engineering</option>
-                                            <option value="School of Business">School of Business</option>
-                                            <option value="School of Science">School of Science</option>
-                                            <!-- Add more schools as needed -->
-                                        </select>
-
-                                        <label for="discipline" class="text-light">Discipline</label>
-                                        <select id="discipline" name="discipline" class="form-control mb-3" required>
-                                            <option value="" disabled selected>Select Discipline</option>
-                                            <option value="Computer Science">Computer Science</option>
-                                            <option value="Electrical Engineering">Electrical Engineering</option>
-                                            <option value="Mechanical Engineering">Mechanical Engineering</option>
-                                            <option value="Business Administration">Business Administration</option>
-                                            <!-- Add more disciplines as needed -->
+                                            <option value="School of Electrical Engineering and Computer Science">
+                                                School of Electrical Engineering and Computer Science</option>
+                                            <option value="School of Mechanical and Manufacturing Engineering">School
+                                                of Mechanical and Manufacturing Engineering</option>
+                                            <option value="School of Civil and Environmental Engineering">School of
+                                                Civil and Environmental Engineering</option>
+                                            <option value="School of Chemical and Materials Engineering">School of
+                                                Chemical and Materials Engineering</option>
+                                            <option value="School of Natural Sciences">School of Natural Sciences
+                                            </option>
+                                            <option value="School of Social Sciences and Humanities">School of Social
+                                                Sciences and Humanities</option>
+                                            <option value="School of Architecture and Planning">School of Architecture
+                                                and Planning</option>
+                                            <option value="School of Electrical Engineering">School of Electrical
+                                                Engineering</option>
+                                            <option value="School of Business and Management Sciences">School of
+                                                Business and Management Sciences</option>
                                         </select>
 
                                         <label for="enrolmentYear" class="text-light">Enrolment Year</label>
-                                        <input id="enrolmentYear" name="enrolmentYear" type="number" min="1900"
-                                            max="2100" class="form-control mb-3" placeholder="Enrolment Year"
+                                        <select id="enrolmentYear" name="enrolmentYear" class="form-control mb-3"
                                             required>
+                                            <option value="" disabled selected>Select Enrolment Year</option>
+                                        </select>
 
                                         <label for="graduationYear" class="text-light">Graduation Year</label>
-                                        <input id="graduationYear" name="graduationYear" type="number"
-                                            min="1900" max="2100" class="form-control mb-3"
-                                            placeholder="Graduation Year" required>
+                                        <select id="graduationYear" name="graduationYear" class="form-control mb-3"
+                                            required>
+                                            <option value="" disabled selected>Select Graduation Year</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6 step-image img-right">
                                         <img src="{{ asset('templates/img/register/b.jpeg') }}">
@@ -328,14 +335,22 @@
                                         <h6 class="mb-3 text-light">Security</h6>
 
                                         <label for="password" class="text-light">Password</label>
-                                        <input id="password" name="password" type="password"
-                                            class="form-control mb-3" placeholder="Password" required
-                                            pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
-                                            title="Must contain at least one uppercase, one lowercase, one special character, one number and minimum 8 characters">
+                                        <div class="password-wrapper mb-3">
+                                            <input id="password" name="password" type="password"
+                                                class="form-control" placeholder="Password" required
+                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}"
+                                                title="Must contain at least one uppercase, one lowercase, one special character, one number and minimum 8 characters">
+                                            <span class="toggle-password" id="togglePassword"
+                                                title="Show/Hide Password">&#128065;</span>
+                                        </div>
 
                                         <label for="confirmPassword" class="text-light">Confirm Password</label>
-                                        <input id="confirmPassword" name="confirmPassword" type="password"
-                                            class="form-control mb-3" placeholder="Confirm Password" required>
+                                        <div class="password-wrapper mb-3">
+                                            <input id="confirmPassword" name="confirmPassword" type="password"
+                                                class="form-control" placeholder="Confirm Password" required>
+                                            <span class="toggle-password" id="toggleConfirmPassword"
+                                                title="Show/Hide Password">&#128065;</span>
+                                        </div>
 
                                         <div class="form-check mt-3">
                                             <input class="form-check-input" type="checkbox" id="termsCheck" required>
@@ -379,6 +394,10 @@
                     <p>Once your account is verified, you’ll be able to log in and access your account.</p>
                     <p>If your account is not verified after 3 days, please email us your degree or transcript for
                         manual verification.</p>
+                    <br>
+                    <p>If your account is not verified after 3 days, please email us your degree or transcript for
+                        manual verification.</p>
+
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Close</button>
@@ -398,8 +417,71 @@
         const password = document.getElementById('password');
         const confirmPassword = document.getElementById('confirmPassword');
 
+        const enrolmentYearSelect = document.getElementById('enrolmentYear');
+        const graduationYearSelect = document.getElementById('graduationYear');
+
+        const currentCountry = document.getElementById('currentCountry');
+        const otherCountryInput = document.getElementById('otherCountry');
+        const currentCity = document.getElementById('currentCity');
+        const otherCityInput = document.getElementById('otherCity');
+
+        const togglePassword = document.getElementById('togglePassword');
+        const toggleConfirmPassword = document.getElementById('toggleConfirmPassword');
+
         let currentStep = 0;
 
+        // Generate year options from 1995 to current year
+        function generateYearOptions() {
+            const currentYear = new Date().getFullYear();
+            for (let year = 1995; year <= currentYear; year++) {
+                const option1 = document.createElement('option');
+                option1.value = year;
+                option1.textContent = year;
+                enrolmentYearSelect.appendChild(option1);
+
+                const option2 = document.createElement('option');
+                option2.value = year;
+                option2.textContent = year;
+                graduationYearSelect.appendChild(option2);
+            }
+        }
+
+        // Prevent same year selection for enrolment and graduation
+        function preventSameYear() {
+            const enrolYear = enrolmentYearSelect.value;
+            const gradYear = graduationYearSelect.value;
+
+            if (enrolYear && gradYear && enrolYear === gradYear) {
+                alert('Enrolment Year and Graduation Year cannot be the same.');
+                graduationYearSelect.value = "";
+            }
+        }
+
+        // Show/hide "Other Country" input
+        currentCountry.addEventListener('change', () => {
+            if (currentCountry.value === 'Other') {
+                otherCountryInput.style.display = 'block';
+                otherCountryInput.required = true;
+            } else {
+                otherCountryInput.style.display = 'none';
+                otherCountryInput.required = false;
+                otherCountryInput.value = '';
+            }
+        });
+
+        // Show/hide "Other City" input
+        currentCity.addEventListener('change', () => {
+            if (currentCity.value === 'Other') {
+                otherCityInput.style.display = 'block';
+                otherCityInput.required = true;
+            } else {
+                otherCityInput.style.display = 'none';
+                otherCityInput.required = false;
+                otherCityInput.value = '';
+            }
+        });
+
+        // Update steps and indicators
         function updateSteps() {
             steps.forEach((step, i) => {
                 step.classList.toggle('active', i === currentStep);
@@ -417,10 +499,27 @@
         };
 
         nextBtn.onclick = () => {
+            // Basic form validation before moving forward
+            // Only validate visible fields
+            const currentStepElement = steps[currentStep];
+            const inputs = currentStepElement.querySelectorAll('input, select');
+
+            for (let input of inputs) {
+                // If input is hidden, skip validation
+                if (input.offsetParent === null) continue;
+
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    return;
+                }
+            }
+
             if (currentStep < steps.length - 1) {
                 currentStep++;
                 updateSteps();
             } else {
+                // Final step: extra validations
+
                 // Password match check
                 if (password.value !== confirmPassword.value) {
                     alert("Passwords do not match.");
@@ -434,17 +533,37 @@
                     return;
                 }
 
+                // Enrolment and Graduation year check
+                if (enrolmentYearSelect.value === graduationYearSelect.value) {
+                    alert('Enrolment Year and Graduation Year cannot be the same.');
+                    return;
+                }
+
+                // For Country & City: if "Other" selected but text input empty, alert
+                if (currentCountry.value === 'Other' && otherCountryInput.value.trim() === '') {
+                    alert('Please enter your country.');
+                    otherCountryInput.focus();
+                    return;
+                }
+
+                if (currentCity.value === 'Other' && otherCityInput.value.trim() === '') {
+                    alert('Please enter your city.');
+                    otherCityInput.focus();
+                    return;
+                }
+
                 // Form validation
                 if (!document.getElementById('multiStepForm').checkValidity()) {
                     document.getElementById('multiStepForm').reportValidity();
                     return;
                 }
 
-                // If all good, show modal popup
+                // Submit form logic here
+                // For now just show modal popup
                 var modal = new bootstrap.Modal(document.getElementById('registrationSuccessModal'));
                 modal.show();
 
-                // Optionally: reset form or disable navigation after success
+                // Optionally reset form or disable navigation after submission
                 // document.getElementById('multiStepForm').reset();
                 // nextBtn.disabled = true;
                 // prevBtn.disabled = true;
@@ -470,8 +589,27 @@
             }
         });
 
+        // Toggle password visibility for Password
+        togglePassword.addEventListener('click', () => {
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            togglePassword.textContent = type === 'password' ? '\u{1F441}' : '\u{1F576}'; // 👁 or 🕶
+        });
+
+        // Toggle password visibility for Confirm Password
+        toggleConfirmPassword.addEventListener('click', () => {
+            const type = confirmPassword.getAttribute('type') === 'password' ? 'text' : 'password';
+            confirmPassword.setAttribute('type', type);
+            toggleConfirmPassword.textContent = type === 'password' ? '\u{1F441}' : '\u{1F576}'; // 👁 or 🕶
+        });
+
+        // On year change prevent same year selection immediately
+        enrolmentYearSelect.addEventListener('change', preventSameYear);
+        graduationYearSelect.addEventListener('change', preventSameYear);
+
+        generateYearOptions();
         updateSteps();
     </script>
 
-    @include('layouts.templates.footer')
+    {{-- @include('layouts.templates.footer') --}}
     @include('layouts.templates.script')
