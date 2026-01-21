@@ -147,7 +147,7 @@
 </style>
 
 <body>
-    {{-- @include('layouts.templates.header') --}}
+    @include('layouts.templates.header')
 
     <div class="container mt-2 p-5">
         <div class="register-wrapper">
@@ -610,5 +610,5 @@
         updateSteps();
     </script>
 
-    {{-- @include('layouts.templates.footer') --}}
+    @include('layouts.templates.footer')
     @include('layouts.templates.script')
