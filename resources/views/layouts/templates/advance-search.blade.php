@@ -106,7 +106,7 @@
 
                 <div class="text-center text-white mb-3">
                     <i class="fa fa-lock fa-3x text-danger mb-3"></i>
-                    <h5 class="fw-bold mb-2">Restricted Access</h5>
+                    <h5 class="fw-bold text-light mb-2">Restricted Access</h5>
                     <p class="mb-4">
                         This information is available exclusively to registered alumni.<br />
                         Please create an account to access full details.
