@@ -74,7 +74,7 @@
         <div class="modal-content p-0 border-0 bg-transparent">
 
             <div class="blurred-container rounded p-4 shadow">
-                <h5 class="text-center mb-4 text-white fw-bold">Sample Alumni Profiles</h5>
+                <h5 class="text-center mb-4 text-white fw-bold">Results</h5>
 
                 <div class="d-flex flex-wrap justify-content-center gap-3 mb-4">
                     <!-- User Cards -->
