@@ -1,7 +1,7 @@
 <!-- Fact Start -->
 <div class="container-fluid fact bg-dark mb-3 py-5">
     <div class="container">
-        <h1 class="text-light text-center mb-5 ">NUSTIAN <span style="color: #FBAF17">BY THE NUMBERS</span></h1>
+        <h1 class="text-light text-center mb-5 ">NUSTIANS <span style="color: #FBAF17">BY THE NUMBERS</span></h1>
         <div class="row g-4">
             <div class="col-md-6 col-lg-3 text-center wow fadeIn" data-wow-delay="0.1s">
                 {{-- <i class="fa fa-check fa-2x text-white mb-3"></i> --}}

@@ -4,106 +4,74 @@
         position: sticky;
         top: 0;
         z-index: 1030;
-        transition: background-color 0.3s ease;
         background-color: #01273E;
+        transition: background-color 0.3s ease;
     }
 
     /* ===== Desktop Nav Links ===== */
-    .navbar-nav .nav-link.text-light {
-        padding: 0.4rem 0.6rem;
+    .navbar-nav .nav-link {
+        padding: 0.5rem 0.75rem;
+        font-size: 16.5px;
+        /* INCREASED */
         font-weight: 500;
-        position: relative;
-        color: #fff;
+        color: #ffffff;
         transition: color 0.3s ease;
     }
 
-    /* ===== Active & Hover ===== */
-    .navbar-nav .nav-link.text-light:hover,
-    .navbar-nav .nav-link.text-light.active {
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
         color: #FBAF17 !important;
     }
 
-    .navbar-nav .nav-link.text-light.active::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -4px;
-        width: 100%;
-        height: 2px;
-        border-radius: 1px;
-        /* background-color: #FBAF17; */
-    }
-
     /* ===== Mobile Nav Links ===== */
-    .offcanvas .nav-link.text-light {
-        padding: 0.6rem 0;
+    .offcanvas .nav-link {
+        padding: 0.75rem 0;
+        font-size: 16px;
         font-weight: 500;
-        color: #fff;
+        color: #ffffff;
     }
 
-    .offcanvas .nav-link.text-light.active {
+    .offcanvas .nav-link.active {
         color: #FBAF17;
     }
 
-    /* Responsive Logo */
+    /* ===== Logo ===== */
     .navbar-brand img {
-        padding: 10px;
-        max-width: 100%;
         height: 80px;
-        width: 100px;
-        transition: width 0.3s ease;
-    }
-
-    @media (max-width: 992px) {
-        .navbar-brand img {
-            width: 100px;
-        }
+        width: auto;
     }
 
     @media (max-width: 576px) {
         .navbar-brand img {
-            width: 80px;
+            height: 65px;
         }
     }
 
-    /* Smooth width transition */
+    /* ===== Smooth container switch ===== */
     #navbarContainer {
-        transition: max-width 0.5s ease;
-        max-width: 1140px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    #navbarContainer.container-fluid {
-        max-width: 100% !important;
-        padding-left: 15px;
-        padding-right: 15px;
-        margin-left: 0;
-        margin-right: 0;
+        transition: max-width 0.4s ease;
     }
 </style>
-
-<!-- ===== TOP LIGHT BAR ===== -->
 <div class="container-fluid bg-light d-none d-lg-block">
     <div class="container">
         <div class="d-flex justify-content-between align-items-center py-2">
 
-            <div class="d-flex align-items-center">
-                <div class="me-4 d-flex align-items-center">
-                    <i class="fa fa-phone-alt text-dark me-2"></i>
-                    <span class="text-dark">051-90856838</span>
+            <div class="d-flex align-items-center gap-4">
+                <div>
+                    <i class="fa fa-phone-alt me-2"></i>
+                    <span>+92-51-90856838</span>
                 </div>
-                <div class="d-flex align-items-center">
-                    <i class="far fa-envelope text-dark me-2"></i>
-                    <span class="text-dark">info@alumni.nust.edu.pk</span>
+                <div>
+                    <i class="far fa-envelope me-2"></i>
+                    <span>info@alumni.nust.edu.pk</span>
                 </div>
             </div>
 
-            <div class="d-flex align-items-center gap-2">
-                <a href="{{ route('register.index') }}" class="btn btn-danger btn-sm fw-semibold rounded-2">
+            <div class="d-flex gap-2">
+                <a href="{{ route('register.index') }}" class="btn btn-danger btn-sm fw-semibold">
                     Register
                 </a>
-                <a href="{{ url('login') }}" class="btn btn-danger btn-sm fw-semibold rounded-2">
+                <a href="{{ url('login') }}" class="btn btn-danger btn-sm fw-semibold">
                     Login
                 </a>
             </div>
@@ -111,15 +79,14 @@
         </div>
     </div>
 </div>
-
-<!-- ===== MAIN NAVBAR ===== -->
-<div class="container-fluid sticky-navbar shadow-sm" style="background-color: #01273E ">
-    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #01273E ">
+<div class="container-fluid sticky-navbar shadow-sm" style="background-color: #01273E">
+    <nav class="navbar navbar-expand-lg navbar-dark py-1" style="background-color: #01273E">
         <div id="navbarContainer" class="container">
 
             <!-- Logo -->
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img src="{{ asset('templates/img/logo.png') }}" alt="Logo">
+                <img src="{{ asset('templates/img/logo.png') }}" alt="Logo" class="p-2"
+                    style="width: 80px; height: 60px;">
             </a>
 
             <!-- Toggle -->
@@ -129,29 +96,29 @@
 
             <!-- Desktop Menu -->
             <div class="collapse navbar-collapse justify-content-center d-none d-lg-flex">
-                <ul class="navbar-nav text-center">
+                <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link text-light {{ request()->routeIs('home') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
                             href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light {{ request()->routeIs('event.*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('event.*') ? 'active' : '' }}"
                             href="{{ route('event.index') }}">Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light {{ request()->routeIs('alumni.connect.*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('alumni.connect.*') ? 'active' : '' }}"
                             href="{{ route('alumni.connect.index') }}">Alumni Community</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light {{ request()->routeIs('alumni.privileges.*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('alumni.privileges.*') ? 'active' : '' }}"
                             href="{{ route('alumni.privileges.index') }}">Alumni Privileges</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light {{ request()->routeIs('nust.giving.back.*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('nust.giving.back.*') ? 'active' : '' }}"
                             href="{{ route('nust.giving.back.index') }}">Giving Back</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light {{ request()->routeIs('about.*') ? 'active' : '' }}"
+                        <a class="nav-link {{ request()->routeIs('about.*') ? 'active' : '' }}"
                             href="{{ route('about.index') }}">About</a>
                     </li>
                 </ul>
@@ -160,29 +127,25 @@
         </div>
     </nav>
 </div>
-
-<!-- ===== MOBILE MENU ===== -->
-<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" style="background:#01273e">
-    <div class="offcanvas-header" style="background:#01273E">
+<div class="offcanvas offcanvas-start" tabindex="-1" id="mobileMenu" style="background:#01273E">
+    <div class="offcanvas-header">
         <h5 class="offcanvas-title fw-bold text-light">Menu</h5>
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
     </div>
 
     <div class="offcanvas-body">
         <ul class="navbar-nav">
-            <li class="nav-item"><a class="nav-link text-light" href="{{ route('home') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{ route('event.index') }}">Event</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{ route('alumni.connect.index') }}">Alumni
-                    Community</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{ route('alumni.privileges.index') }}">Alumni
+            <li class="nav-item"><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('event.index') }}">Event</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('alumni.connect.index') }}">Alumni Community</a>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('alumni.privileges.index') }}">Alumni
                     Privileges</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{ route('nust.giving.back.index') }}">Giving
-                    Back</a></li>
-            <li class="nav-item"><a class="nav-link text-light" href="{{ route('about.index') }}">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('nust.giving.back.index') }}">Giving Back</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('about.index') }}">About</a></li>
         </ul>
     </div>
 </div>
-
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const navbarContainer = document.getElementById('navbarContainer');

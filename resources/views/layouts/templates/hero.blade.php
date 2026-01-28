@@ -12,7 +12,7 @@
 
     /* Dark overlay */
     .overlay-bg {
-        background: rgba(0, 0, 0, 0.45);
+        background: rgba(0, 0, 0, 0.632);
     }
 
     /* Text size control */
@@ -127,7 +127,7 @@
                             </h1>
 
                             <p class="text-white mb-3 carousel-text">
-                                The alumni portal provides verified access to the alumni directory, digital alumni card,
+                                The alumni portal provides verified access to the alumni directory, alumni card,
                                 and engagement opportunities, all in one place.
                             </p>
 

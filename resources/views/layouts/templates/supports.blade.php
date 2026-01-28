@@ -1,17 +1,18 @@
 <!-- Service Start -->
-<section class="position-relative min-vh-75 py-3" style="overflow: hidden;">
-    <!-- Overlay -->
+<section class="position-relative min-vh-75 py-3 overflow-hidden">
+
+    <!-- Section Overlay -->
     <div class="position-absolute top-0 start-0 w-100 h-100"
-        style="background-color: rgba(255, 255, 255, 0.4); z-index: 1;">
-    </div>
+        style="background-color: rgba(255, 255, 255, 0.4); z-index: 1;"></div>
 
-    <div class="container py-5 d-flex flex-column justify-content-center position-relative" style="z-index: 2;">
+    <div class="container py-5 position-relative" style="z-index: 2;">
 
-        <!-- Heading Text Above Cards -->
+        <!-- Heading -->
         <div class="text-center mb-5 px-3">
             <h1 class="fw-bold text-dark mb-3">
-                Built to Support You<span class="animate-bounce animate__animated animate__fadeInUp animate__delay-1s"
-                    style="color: #FBAF17"> Beyond Graduation</span>
+                Built to Support You
+                <span class="animate__animated animate__fadeInUp animate__delay-1s" style="color:#FBAF17;"> Beyond
+                    Graduation</span>
             </h1>
 
             <p class="text-dark col-md-10 mx-auto">
@@ -24,9 +25,20 @@
         <!-- Cards Row -->
         <div class="row g-4 justify-content-center">
 
+            <!-- Card 1 -->
             <div class="col-lg-3 col-md-6 col-sm-10">
                 <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-1s">
-                    <img src="templates/img/service-1.jpg" class="card-img-top img-fluid" alt="Campus Facilities">
+
+                    <!-- Image with PERMANENT Overlay -->
+                    <div class="position-relative">
+                        <img src="{{ asset('templates/img/service-3.jpg') }}" class="card-img-top img-fluid"
+                            alt="Campus Facilities">
+
+                        <!-- Permanent Overlay -->
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,0.35);">
+                        </div>
+                    </div>
+
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Campus Facilities</h5>
                         <p class="card-text flex-grow-1">
@@ -36,9 +48,18 @@
                 </div>
             </div>
 
+            <!-- Card 2 -->
             <div class="col-lg-3 col-md-6 col-sm-10">
                 <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-2s">
-                    <img src="templates/img/service-3.jpg" class="card-img-top img-fluid" alt="Lifelong Learning">
+
+                    <div class="position-relative">
+                        <img src="{{ asset('templates/img/service-1.jpg') }}" class="card-img-top img-fluid"
+                            alt="Lifelong Learning">
+
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,0.35);">
+                        </div>
+                    </div>
+
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Lifelong Learning</h5>
                         <p class="card-text flex-grow-1">
@@ -48,9 +69,18 @@
                 </div>
             </div>
 
+            <!-- Card 3 -->
             <div class="col-lg-3 col-md-6 col-sm-10">
                 <div class="card shadow-sm h-100 animate__animated animate__fadeInUp animate__delay-3s">
-                    <img src="templates/img/service-2.jpg" class="card-img-top img-fluid" alt="Alumni Card">
+
+                    <div class="position-relative">
+                        <img src="{{ asset('templates/img/service-2.jpg') }}" class="card-img-top img-fluid"
+                            alt="Alumni Card">
+
+                        <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,0.35);">
+                        </div>
+                    </div>
+
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">Alumni Card</h5>
                         <p class="card-text flex-grow-1">
@@ -60,6 +90,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </section>

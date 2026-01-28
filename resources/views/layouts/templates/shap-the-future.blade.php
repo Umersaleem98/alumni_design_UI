@@ -1,157 +1,99 @@
-<style>
-    /* Card base */
-    .service-card {
-        transition: all 0.35s ease;
-        border-radius: 12px;
-        overflow: hidden;
-        background: #fff;
-    }
+<section class="container-fluid py-4">
+    <div class="row g-3">
 
-    /* Image control */
-    .service-card img {
-        height: 160px;
-        /* 🔥 Reduced height */
-        width: 100%;
-        object-fit: cover;
-        transition: transform 0.4s ease;
-    }
+        <!-- Card 1 -->
+        <div class="col-lg-7 col-md-12 animate__animated animate__fadeInLeft animate__delay-1s">
+            <div class="position-relative text-white h-100 rounded overflow-hidden"
+                style="background:url('{{ asset('templates/img/imgs/abc.jpeg') }}') center/cover no-repeat; min-height:350px;">
 
-    /* Hover effect */
-    .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 14px 30px rgba(0, 0, 0, 0.25);
-    }
+                <!-- Overlay -->
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(1,39,50,0.85);"></div>
 
-    .service-card:hover img {
-        transform: scale(1.06);
-    }
+                <div class="position-relative h-100 d-flex flex-column justify-content-center text-center p-4">
+                    <h2 class="fw-bold text-light animate__animated animate__fadeInUp animate__delay-2s">
+                        Mentorship
+                    </h2>
 
-    /* Card body */
-    .service-card .card-body {
-        padding: 1.25rem;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-    }
+                    <p class="mt-3 animate__animated animate__fadeInUp animate__delay-3s">
+                        Guide, inspire, and support students and young alumni by sharing your experiences,
+                        insights, and career journey.
+                    </p>
 
-    /* Title */
-    .service-card h5 {
-        color: #01273e;
-        font-weight: 700;
-        margin-bottom: 4px;
-    }
-
-    /* Subtitle */
-    .service-card h6 {
-        color: #6c757d;
-        font-size: 0.85rem;
-        margin-bottom: 10px;
-        min-height: 20px;
-        /* 🔥 Keeps alignment equal */
-    }
-
-    /* Paragraph */
-    .service-card p {
-        color: #555;
-        font-size: 0.95rem;
-        line-height: 1.6;
-        margin-bottom: 0;
-        flex-grow: 1;
-        /* 🔥 Equal height text area */
-    }
-</style>
-<!-- Service Start -->
-<section class="position-relative vh-100 d-flex align-items-center mb-3"
-    style="background: url('templates/img/shape-the-future.jpeg') center center / cover no-repeat;">
-
-    <!-- Overlay -->
-    <div class="position-absolute top-0 start-0 w-100 h-100"
-        style="
-            background: linear-gradient(
-                rgba(1, 39, 62, 0.85),
-                rgba(1, 39, 62, 0.85)
-            );
-            z-index: 1;
-        ">
-    </div>
-
-    <div class="container py-5 position-relative" style="z-index: 2;">
-
-        <!-- Heading Text -->
-        <div class="text-center text-white mb-5 px-3">
-            <h1 class="fw-bold text-light mb-2">Shape the <span style="color: #FBAF17">Future of NUST</span></h1>
-            <h5 class="fw-semibold text-light mb-3">
-                Make a Difference, Connect, and Give Back
-            </h5>
-            {{-- <p class="lead col-md-8 mx-auto text-light">
-                As a NUST alumnus, you have the opportunity to give back — through mentorship,
-                industry connections, or financial support — and make a lasting impact on the next generation.
-            </p> --}}
-        </div>
-
-        <!-- Cards Row -->
-        <div class="row g-4 justify-content-center">
-
-            <!-- Card 1 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card service-card h-100 border-0">
-                    <img src="templates/img/Mentorship.jpeg" class="card-img-top" alt="Mentorship">
-                    <div class="card-body">
-                        <h5>Mentorship</h5>
-                        <h6>Guide Future Leaders</h6>
-                        <p>
-                            Guide, inspire, and support students and young alumni by sharing your experiences,
-                            insights, and career journey.
-                        </p>
+                    <div class="fw-semibold mt-3 animate__animated animate__fadeInUp animate__delay-4s">
+                        <a href="#" class="btn btn-danger ">Explore More</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Card 2 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card service-card h-100 border-0">
-                    <img src="templates/img/Industry Connect.jpeg" class="card-img-top" alt="Industry Connect">
-                    <div class="card-body">
-                        <h5>Industry Connect</h5>
-                        <h6>Open New Doors</h6>
-                        <p>
-                            Open doors to opportunities by connecting NUST students and graduates
-                            with your professional network.
-                        </p>
+        <!-- Card 2 -->
+        <div class="col-lg-5 col-md-12 animate__animated animate__fadeInRight animate__delay-1s">
+            <div class="position-relative text-white h-100 rounded overflow-hidden"
+                style="background:url('{{ asset('templates/img/imgs/def.jpeg') }}') center/cover no-repeat; min-height:350px;">
+
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(128,0,0,0.75);"></div>
+
+                <div class="position-relative h-100 d-flex flex-column justify-content-center text-center p-4">
+                    <h2 class="fw-bold text-light animate__animated animate__fadeInUp animate__delay-2s">
+                        Industry Connect
+                    </h2>
+
+                    <p class="mt-3 animate__animated animate__fadeInUp animate__delay-3s">
+                        Open doors to opportunities by connecting NUST students and graduates with your professional
+                        network.
+                    </p>
+
+                    <div class="fw-semibold mt-3 animate__animated animate__fadeInUp animate__delay-4s">
+                        <a href="#" class="btn btn-warning text-dark">Explore More</a>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- Card 3 -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card service-card h-100 border-0">
-                    <img src="templates/img/Give Back.jpeg" class="card-img-top" alt="Give Back">
-                    <div class="card-body">
-                        <h5>Give Back</h5>
-                        <h6>Support Education</h6>
-                        <p>
-                            Contribute to the long-term growth of NUST by supporting scholarships,
-                            research, and student development initiatives.
-                        </p>
+        <!-- Card 3 -->
+        <div class="col-lg-5 col-md-12 animate__animated animate__fadeInLeft animate__delay-2s">
+            <div class="position-relative text-white h-100 rounded overflow-hidden"
+                style="background:url('{{ asset('templates/img/imgs/def.jpeg') }}') center/cover no-repeat; min-height:350px;">
+
+                <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(255,193,7,0.85);"></div>
+
+                <div class="position-relative h-100 d-flex flex-column justify-content-center text-center p-4">
+                    <h2 class="fw-bold text-dark animate__animated animate__fadeInUp animate__delay-3s">
+                        Give Back
+                    </h2>
+
+                    <p class="mt-3 text-dark animate__animated animate__fadeInUp animate__delay-4s">
+                        Contribute to the long-term growth of NUST by supporting scholarships, research, and student
+                        development initiatives.
+                    </p>
+
+                    <div class="fw-semibold mt-3 animate__animated animate__fadeInUp animate__delay-5s">
+                        <a href="#" class="btn btn-dark">Explore More</a>
                     </div>
                 </div>
             </div>
-
-
         </div>
-        <div class="row justify-content-center mt-4">
-            <div class="col-auto">
-                <a href="{{ route('nust.giving.back.index') }}"
-                    class="btn btn-danger btn-lg fs-5 px-6 py-3 fw-semibold">
-                    Explore More
-                </a>
+
+        <!-- Card 4 -->
+        <div class="col-lg-7 col-md-12 animate__animated animate__fadeInRight animate__delay-2s">
+            <div class="position-relative h-100 rounded overflow-hidden bg-light min-vh-25">
+
+                <div class="position-relative h-100 d-flex flex-column justify-content-center text-center p-4">
+                    <h2 class="fw-bold text-dark animate__animated animate__fadeInUp animate__delay-3s">
+                        Shape the <span style="color: #FBAF17">Future of NUST</span>
+                    </h2>
+
+                    <p class="mt-3 text-dark animate__animated animate__fadeInUp animate__delay-4s">
+                        As a NUST alumnus, you have the opportunity to give back through mentorship,
+                        industry connections, or financial support, and make a lasting impact on the next generation.
+                    </p>
+
+                    <div class="fw-semibold mt-3 text-dark animate__animated animate__fadeInUp animate__delay-5s">
+                        Goal: $30,000 &nbsp; | &nbsp; Date: 01 Apr’20
+                    </div>
+                </div>
             </div>
         </div>
-
-
-    </div>
-
 
     </div>
 </section>
-<!-- Service End -->

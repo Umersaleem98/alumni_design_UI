@@ -189,16 +189,12 @@
                         connections, engagement, and collaboration among graduates. It works to strengthen bonds,
                         organize meaningful initiatives, and represent the collective voice of our alumni community.
                     </p>
-                    {{-- <a href="#" class="btn btn-danger" style="border-radius: 8px;">
-                        Learn More <i class="bi bi-arrow-right"></i>
-                    </a> --}}
+
                 </div>
 
             </div>
         </div>
     </section>
-
-
 
     <style>
         /* ===== Section with Background Video ===== */
@@ -259,7 +255,7 @@
         }
 
         .nav-tabs .nav-link {
-            border: 2px solid #800000;
+            border: 2px solid #B36767;
             /* danger */
             color: #fff;
             background: transparent;
@@ -288,7 +284,7 @@
         }
     </style>
 
-    <section class="py-5 section-wrapper">
+    <section class="py-5 section-wrapper mb-3">
 
         <!-- Background Video -->
         <video autoplay muted loop playsinline class="section-video">
@@ -311,7 +307,7 @@
             <!-- Tabs -->
             <ul class="nav nav-tabs justify-content-center mb-4" id="chapterTabs">
                 <li class="nav-item">
-                    <button class="nav-link fs-5 active" data-bs-toggle="tab" data-bs-target="#national">
+                    <button class="nav-link active fs-5 btn-" data-bs-toggle="tab" data-bs-target="#national">
                         National Chapters
                     </button>
                 </li>
@@ -331,7 +327,7 @@
 
                         @forelse ($nationalChapters as $item)
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                <a href="{{ url('chapter.show', $item->id) }}"
+                                <a href="{{ route('chapter.show', $item->id) }}"
                                     class="text-decoration-none d-block bg-white rounded shadow p-2 chapter-card h-100">
                                     <img src="{{ asset('templates/img/International-chapters/' . $item->cover_image) }}"
                                         alt="{{ $item->chapter_name }}" class="img-fluid rounded mb-2">
@@ -348,8 +344,8 @@
 
                     <div class="text-center mt-4">
                         {{-- <a href="#" class="btn btn-danger px-4" style="border-radius:8px;">
-                            Explore More
-                        </a> --}}
+                        Explore More
+                    </a> --}}
                     </div>
                 </div>
 
@@ -359,7 +355,7 @@
 
                         @forelse ($internationalChapters as $item)
                             <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                                <a href="{{ url('chapter.show', $item->id) }}"
+                                <a href="{{ route('chapter.show', $item->id) }}"
                                     class="text-decoration-none d-block bg-white rounded shadow p-2 chapter-card h-100">
                                     <img src="{{ asset('templates/img/International-chapters/' . $item->cover_image) }}"
                                         alt="{{ $item->chapter_name }}" class="img-fluid rounded mb-2">
@@ -376,14 +372,19 @@
 
                     <div class="text-center mt-4">
                         {{-- <a href="#" class="btn btn-danger px-4" style="border-radius:8px;">
-                            Explore More
-                        </a> --}}
+                        Explore More
+                    </a> --}}
                     </div>
                 </div>
 
             </div>
         </div>
     </section>
+
+
+
+
+
 
 
     <style>
@@ -476,7 +477,7 @@
                         <img src="{{ asset('templates/img/thematic-club/b.jpeg') }}" alt="Library & Resources">
 
                         <div class="facility-overlay">
-                            <h5 class="text-light">CEO`s Club</h5>
+                            <h5 class="text-light">CEOs Club</h5>
                             <p class="text-light">
                                 A network of leaders, founders, and executives focused on strategic thinking, leadership
                                 growth, and meaningful collaboration across industries.
@@ -507,53 +508,6 @@
 
         </div>
     </section>
-
-
-    {{-- <section class="py-5" style="background:#f4f1ee;">
-        <div class="container">
-
-            <div class="text-center mb-4">
-                <h4 class="fw-bold">Thematic Clubs</h4>
-                <p class="text-muted">
-                    Find like-minded alumni through specialized interest clubs.
-                </p>
-            </div>
-
-            <div class="row g-4">
-
-                <div class="col-md-4">
-                    <div class="card text-center shadow-sm h-100">
-                        <div class="card-body">
-                            <i class="bi bi-code-slash fs-2 text-primary"></i>
-                            <h6 class="fw-bold mt-2">CSS Club</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card text-center shadow-sm h-100">
-                        <div class="card-body">
-                            <i class="bi bi-briefcase fs-2 text-success"></i>
-                            <h6 class="fw-bold mt-2">CEOs Club</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card text-center shadow-sm h-100">
-                        <div class="card-body">
-                            <i class="bi bi-lightbulb fs-2 text-warning"></i>
-                            <h6 class="fw-bold mt-2">Entrepreneurs Club</h6>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section> --}}
-
-
 
     @include('layouts.templates.footer')
     @include('layouts.templates.script')

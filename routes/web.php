@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('chapter/show/{id}', [HomeController::class, 'Chapter'])->name('chapter.show');
 Route::get('event/index', [EventController::class, 'index'])->name('event.index');
 Route::get('alumni/privileges/index', [AlumniPrivilegesController::class, 'index'])->name('alumni.privileges.index');
 Route::get('nust/giving/back/index', [NUSTGivingBackController::class, 'index'])->name('nust.giving.back.index');

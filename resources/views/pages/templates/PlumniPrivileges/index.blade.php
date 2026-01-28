@@ -197,7 +197,11 @@
 
                 <!-- Right: Points + Button -->
                 <div class="col-md-7">
-                    <h1 class="mb-3">Join the NUST <span style="color: #FBAF17">Alumni Network</span> </h1>
+                    <h1 class="mb-3">
+                        Join the NUST
+                        <span style="color:#FBAF17; display:block;">Alumni Network</span>
+                    </h1>
+
 
                     <ul class="list-unstyled alumni-points mb-4 fs-6">
                         <li class="mb-2">✔ <strong>Seamless Access –</strong> Enjoy priority access to facilities,
@@ -487,7 +491,7 @@
                         </a>
                         <a href="https://share.google/4lwzdGAKWnaRCAiIA" target="_blank" rel="noopener noreferrer"
                             class="btn btn-danger px-4" style="border-radius: 8px;">
-                            Trascript Verification
+                            Transcript Verification
                         </a>
 
                     </div>

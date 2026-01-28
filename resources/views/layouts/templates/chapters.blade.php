@@ -129,7 +129,7 @@
 
                     @forelse ($nationalChapters as $item)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <a href="{{ url('chapter.show', $item->id) }}"
+                            <a href="{{ route('chapter.show', $item->id) }}"
                                 class="text-decoration-none d-block bg-white rounded shadow p-2 chapter-card h-100">
                                 <img src="{{ asset('templates/img/International-chapters/' . $item->cover_image) }}"
                                     alt="{{ $item->chapter_name }}" class="img-fluid rounded mb-2">
@@ -157,7 +157,7 @@
 
                     @forelse ($internationalChapters as $item)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                            <a href="{{ url('chapter.show', $item->id) }}"
+                            <a href="{{ route('chapter.show', $item->id) }}"
                                 class="text-decoration-none d-block bg-white rounded shadow p-2 chapter-card h-100">
                                 <img src="{{ asset('templates/img/International-chapters/' . $item->cover_image) }}"
                                     alt="{{ $item->chapter_name }}" class="img-fluid rounded mb-2">

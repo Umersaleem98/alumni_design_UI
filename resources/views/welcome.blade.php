@@ -8,8 +8,8 @@
     @include('layouts.templates.count')
     @include('layouts.templates.supports')
     @include('layouts.templates.chapters')
-    @include('layouts.templates.advance-search')
     @include('layouts.templates.alumni-event')
+    @include('layouts.templates.advance-search')
     @include('layouts.templates.shap-the-future')
 
     @include('layouts.templates.footer')

@@ -1,526 +1,642 @@
 @include('layouts.templates.head')
-<title>Index</title>
+
 <style>
-    .custom-shadow {
-        box-shadow: 0 0 5px 2px rgba(0, 123, 255, 0.5);
+    .register-wrapper {
+        min-height: 500px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
-    .strength-msg {
-        font-size: 0.9rem;
-        margin-top: 5px;
+    .register-card {
+        background: #01273E;
+        border-radius: 16px;
+        color: #fff;
     }
 
-    .weak {
-        color: red;
+    .step-image {
+        text-align: center;
+        opacity: 0;
     }
 
-    .medium {
-        color: orange;
+    .step-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
     }
 
-    .strong {
-        color: green;
+    .step-form {
+        opacity: 0;
     }
 
-    .eye-icon {
+    .form-step {
+        display: none;
+    }
+
+    .form-step.active {
+        display: block;
+    }
+
+    .form-step.active .step-form {
+        animation: fadeUp 0.6s ease forwards;
+        opacity: 1;
+    }
+
+    .form-step.active .img-left {
+        animation: slideLeft 0.7s ease forwards;
+        opacity: 1;
+    }
+
+    .form-step.active .img-right {
+        animation: slideRight 0.7s ease forwards;
+        opacity: 1;
+    }
+
+    @keyframes slideLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes slideRight {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeUp {
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* STEP INDICATOR */
+    .step-indicator span {
+        width: 30px;
+        height: 30px;
+        background: #800000;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        margin: 0 4px;
+        font-size: 13px;
+        color: #fff;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .step-indicator span.active {
+        background: #FBAF17;
+        color: #000;
+    }
+
+    /* INPUT STYLING */
+    label {
+        font-size: 13px;
+    }
+
+    .form-control,
+    select {
+        font-size: 13px;
+        background: #fff;
+        color: #000;
+        border-radius: 8px;
+        border: 1.5px solid #FFC107;
+        transition: all 0.3s ease;
+    }
+
+    .form-control:focus,
+    select:focus {
+        border-color: #FFC107;
+        box-shadow: 0 0 0 0.19rem rgba(128, 0, 0, 0.25);
+    }
+
+    .form-check-input:checked {
+        background-color: #FFC107;
+        border-color: #FFC107;
+    }
+
+    .conditional-fields,
+    .extra-input {
+        display: none;
+    }
+
+    .terms-label {
+        font-size: 13px;
+        color: #fff;
+        user-select: none;
+    }
+
+    .password-wrapper {
+        position: relative;
+    }
+
+    .toggle-password {
         position: absolute;
+        right: 12px;
         top: 50%;
-        right: 15px;
         transform: translateY(-50%);
         cursor: pointer;
-        z-index: 10;
+        color: #555;
     }
 
-    input[type="password"].pe-5 {
-        padding-right: 2.5rem !important;
-    }
-
-    select:disabled {
-        background-color: #e9ecef;
-        cursor: not-allowed;
-    }
-
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-    }
-
-    input[type="number"] {
-        -moz-appearance: textfield;
-    }
-
-    .profile-preview-container {
-        background-color: #007bff1a;
-        border: 2px solid #007bff;
-        border-radius: 15px;
-        padding: 15px;
-    }
-
-    #photoPreview {
-        max-width: 150px;
-        height: 150px;
-        border-radius: 50%;
-        border: 3px solid #007bff;
-        background-color: #007bff;
-        object-fit: cover;
-    }
-
-    .transcript-warning {
-        color: #b30000;
-        font-size: 0.9rem;
-        margin-top: 6px;
-    }
-
-    .optional-field {
-        display: none;
+    /* Small adjustments */
+    .form-check-label {
+        font-size: 13px;
+        color: #fff;
     }
 </style>
 
 <body>
-
-    {{-- @include('layouts.templates.topbar') --}}
     @include('layouts.templates.header')
 
+    <div class="container mt-2 p-5">
+        <div class="register-wrapper">
+            <div class="row w-100 justify-content-center">
+                <div class="col-xl-9 col-lg-10 col-md-11">
+                    <div class="register-card shadow-lg p-5">
+                        <h4 class="mb-3 text-center text-light">Create Account</h4>
 
-
-    {{-- <section class="banner-section text-center">
-        <div class="container-fluid">
-            <img src="{{ asset('templates/img/Alumnustregisteration.gif') }}" alt="Team Banner" class="img-fluid mb-4"
-                style="height:180px;">
-        </div>
-    </section> --}}
-
-    {{-- Success message --}}
-    @if (session('success'))
-        <div class="alert alert-success alert-dismissible fade show" role="alert">
-            {{ session('success') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    {{-- Error message (session) --}}
-    @if (session('error'))
-        <div class="alert alert-danger alert-dismissible fade show" role="alert">
-            {{ session('error') }}
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-        </div>
-    @endif
-
-    <div class="container">
-        <div class="progress mb-4" style="height: 20px;">
-            <div id="progressBar" class="progress-bar bg-danger" role="progressbar" style="width: 20%;"
-                aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
-                20%
-            </div>
-        </div>
-
-        <h3 class="mb-4 text-center text-danger">AlumNUST Registration</h3>
-        <div class="row justify-content-center">
-            <div class="col-md-10">
-                <form id="multiStepForm" action="{{ url('auth/register') }}" method="POST"
-                    enctype="multipart/form-data">
-                    @csrf
-
-                    <!-- Step 1 -->
-                    <div class="step" id="step1">
-                        <h5 class="text-danger mb-3">Step 1: Personal Information</h5>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Name *</label>
-                                <input type="text" name="name" class="form-control custom-shadow"
-                                    placeholder="Enter your full name" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">CNIC *</label>
-                                <input type="number" name="cnic" class="form-control custom-shadow"
-                                    placeholder="Enter your CNIC without dashes" required>
-                            </div>
+                        <!-- STEP INDICATOR -->
+                        <div class="step-indicator text-center mb-3">
+                            <span class="active" data-step="0">1</span>
+                            <span data-step="1">2</span>
+                            <span data-step="2">3</span>
+                            <span data-step="3">4</span>
+                            <span data-step="4">5</span>
                         </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Email *</label>
-                                <input type="email" name="email" class="form-control custom-shadow"
-                                    placeholder="Enter your email address" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Mobile No *</label>
-                                <div class="input-group custom-shadow">
-                                    <select name="country_code" class="form-select" style="max-width: 120px;" required>
-                                        <option value="+92" selected>+92 (PK)</option>
-                                        <option value="+1">+1 (US)</option>
-                                        <option value="+44">+44 (UK)</option>
-                                        <option value="+971">+971 (UAE)</option>
-                                        <option value="+61">+61 (AUS)</option>
-                                        <option value="+91">+91 (IN)</option>
-                                    </select>
-                                    <input type="tel" name="mobile_no" class="form-control" placeholder="3001234567"
-                                        required pattern="[0-9]{7,15}">
-                                </div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-danger float-end" onclick="nextStep()">Next</button>
-                    </div>
 
-                    <!-- Step 2 -->
-                    <div class="step d-none" id="step2">
-                        <h5 class="text-danger mb-3">Step 2: Account Security</h5>
-                        <div class="row mb-3">
-                            <div class="col-md-6 position-relative">
-                                <label class="form-label text-dark">Password *</label>
-                                <div class="input-group custom-shadow">
-                                    <input type="password" class="form-control pe-5" name="password" id="password"
-                                        placeholder="Create a strong password" required
-                                        oninput="checkStrength(this.value); checkMatch();">
-                                    <span class="eye-icon" onclick="togglePassword('password', 'toggleIcon')">
-                                        <i id="toggleIcon" class="fas fa-eye text-secondary"></i>
-                                    </span>
-                                </div>
-                                <div id="strengthMessage" class="strength-msg"></div>
+                        <!-- PROGRESS BAR -->
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <small class="text-light">Profile Completion</small>
+                                <small class="text-warning" id="progressPercent">0%</small>
                             </div>
-
-                            <div class="col-md-6 position-relative">
-                                <label class="form-label text-dark">Confirm Password *</label>
-                                <div class="input-group custom-shadow">
-                                    <input type="password" class="form-control pe-5" name="password_confirmation"
-                                        id="confirm_password" placeholder="Re-enter password" required
-                                        oninput="checkMatch();">
-                                    <span class="eye-icon"
-                                        onclick="togglePassword('confirm_password', 'toggleIconConfirm')">
-                                        <i id="toggleIconConfirm" class="fas fa-eye text-secondary"></i>
-                                    </span>
-                                </div>
-                                <div id="matchMessage" class="strength-msg"></div>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                        <button type="button" id="nextStep2Btn" class="btn btn-danger float-end"
-                            onclick="nextStep()" disabled>Next</button>
-                    </div>
-
-                    <!-- Step 3 -->
-                    <div class="step d-none" id="step3">
-                        <h5 class="text-danger mb-3">Step 3: Professional Information</h5>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Current Organization *</label>
-                                <input type="text" name="current_organization" class="form-control custom-shadow"
-                                    placeholder="Enter your current organization" required>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Designation *</label>
-                                <select name="current_designation" id="current_designation"
-                                    class="form-select custom-shadow" required>
-                                    <option disabled selected>--Select--</option>
-                                    <option>Manager</option>
-                                    <option>Engineer</option>
-                                    <option>Student</option>
-                                    <option>Other</option>
-                                </select>
-                                <input type="text" name="other_designation"
-                                    class="form-control mt-2 optional-field custom-shadow"
-                                    id="other_designation_input" placeholder="Enter your designation">
-                            </div>
-                        </div>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Country *</label>
-                                <select name="current_country" id="current_country" class="form-select custom-shadow"
-                                    required>
-                                    <option disabled selected value="">--Select--</option>
-                                    <option value="Pakistan">Pakistan</option>
-                                    <option value="USA">USA</option>
-                                    <option value="UK">UK</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">City *</label>
-                                <select name="current_city" id="current_city" class="form-select custom-shadow"
-                                    required disabled>
-                                    <option disabled selected value="">--Select--</option>
-                                    <option>Islamabad</option>
-                                    <option>Lahore</option>
-                                    <option>Karachi</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                        </div>
-                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                        <button type="button" class="btn btn-danger float-end" onclick="nextStep()">Next</button>
-                    </div>
-
-                    <!-- Step 4 -->
-                    <div class="step d-none" id="step4">
-                        <h5 class="text-danger mb-3">Step 4: Academic Background</h5>
-                        <div class="row mb-3">
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">School/College *</label>
-                                <select name="school_college_institution" class="form-select custom-shadow" required>
-                                    <option disabled selected>--Select--</option>
-                                    <option>SEECS</option>
-                                    <option>SMME</option>
-                                    <option>CAER</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Graduation Year *</label>
-                                <div class="d-flex gap-2">
-                                    <select name="graduation_start_year" id="start_year"
-                                        class="form-select custom-shadow" required>
-                                        <option disabled selected>Start Year</option>
-                                        @for ($year = date('Y'); $year >= 1990; $year--)
-                                            <option>{{ $year }}</option>
-                                        @endfor
-                                    </select>
-                                    <select name="graduation_end_year" id="end_year"
-                                        class="form-select custom-shadow" required disabled>
-                                        <option disabled selected>End Year</option>
-                                    </select>
+                            <div class="progress" style="height:8px;border-radius:20px;">
+                                <div id="progressBar" class="progress-bar"
+                                    style="width:0%;background:#FFC107;border-radius:20px;">
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 text-center">
-                                <label class="form-label text-dark">Profile Photo *</label>
-                                <div class="profile-preview-container">
-                                    <input type="file" name="profile_picture" id="profile_picture"
-                                        class="form-control custom-shadow" accept="image/*" required
-                                        onchange="previewProfilePhoto(event)">
-                                    <div class="mt-3">
-                                        <img id="photoPreview" src="#" alt="Profile Preview" class="d-none">
+                        <form id="multiStepForm" onsubmit="return false;">
+                            <!-- STEP 1 -->
+                            <div class="form-step active">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 text-center">
+                                        <div class="step-image img-left mb-4">
+                                            <img src="{{ asset('templates/img/degreee.jpeg') }}" alt="Degree Image">
+                                        </div>
+                                        <button type="button" class="btn btn-danger btn-lg"
+                                            id="startBtn">Start</button>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-md-6">
-                                <label class="form-label text-dark">Attach Transcript/Degree *</label>
-                                <input type="file" name="transcript" class="form-control custom-shadow"
-                                    accept=".pdf,.jpg,.jpeg,.png" required>
-                                <div class="transcript-warning">
-                                    ⚠️ If you do not attach your Transcript/Degree, your account will not be
-                                    verified.<br>
-                                    For help, email: <a href="mailto:info@alumni.nust.edu.pk"
-                                        class="text-decoration-none text-primary">info@alumni.nust.edu.pk</a>
+                            <!-- STEP 2: Personal Information -->
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-image img-left">
+                                        <img src="{{ asset('templates/img/register/a.jpeg') }}"
+                                            alt="Personal Info Image">
+                                    </div>
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Personal Information</h6>
+
+                                        <input class="form-control mb-3"
+                                            placeholder="Full Name (As present on the degree)">
+
+                                        <!-- CNIC/Passport Toggle -->
+                                        <div class="mb-3">
+                                            <label class="terms-label d-block mb-1">Student Type</label>
+                                            <select class="form-control" id="studentType">
+                                                <option value="" disabled selected>Select Student Type</option>
+                                                <option value="local">Local Student</option>
+                                                <option value="international">International Student</option>
+                                            </select>
+                                        </div>
+
+                                        <input class="form-control mb-3" placeholder="CNIC (xxxxx-xxxxxxx-x)"
+                                            id="cnicInput" title="Format: xxxxx-xxxxxxx-x">
+
+                                        <input class="form-control mb-3" placeholder="Passport (xxxxx-xxxxxxxx-x)"
+                                            id="passportInput" title="Format: xxxxx-xxxxxxxx-x" style="display:none;">
+
+                                        <input type="email" class="form-control mb-3" placeholder="Personal Email">
+
+                                        <input type="tel" class="form-control mb-3"
+                                            placeholder="Mobile (Whatsapp No)">
+
+                                        <select class="form-control mb-3" id="currentCountry">
+                                            <option disabled selected>Select Country</option>
+                                            <option>Pakistan</option>
+                                            <option>USA</option>
+                                            <option>UK</option>
+                                            <option value="other">Other</option>
+                                        </select>
+
+                                        <input class="form-control mb-3 extra-input" id="otherCountry"
+                                            placeholder="Other Country">
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <button type="button" class="btn btn-secondary" onclick="prevStep()">Back</button>
-                        <button type="button" class="btn btn-danger float-end" onclick="nextStep()">Next</button>
-                    </div>
+                            <!-- STEP 3: Education -->
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Education</h6>
 
-                    <!-- Step 5 -->
-                    <div class="step d-none" id="step5">
-                        <h5 class="text-danger mb-3">Step 5: Agreement & Submit</h5>
-                        <div class="mb-3 form-check">
-                            <input type="checkbox" class="form-check-input" id="termsCheckbox" name="terms_agreed"
-                                required>
-                            <label class="form-check-label text-dark">
-                                I agree to the <a href="#">Terms & Conditions</a> of NUST Alumni Connect
-                            </label>
-                        </div>
-                        <div class="text-center">
-                            <button type="button" class="btn btn-secondary me-2" onclick="prevStep()">Back</button>
-                            <button type="submit" class="btn btn-danger">Submit Information</button>
-                        </div>
+                                        <input class="form-control mb-3" placeholder="Registration Number">
+
+                                        <select class="form-control mb-3" id="degreeSelect">
+                                            <option value="" disabled selected>Select Degree typex</option>
+                                            <option>Bachelors</option>
+                                            <option>Masters</option>
+                                            <option>PhD</option>
+                                            <option value="other">Other</option>
+                                        </select>
+
+                                        <input class="form-control mb-3 extra-input" id="otherDegree"
+                                            placeholder="Specify Other Degree">
+
+                                        <input class="form-control mb-3" placeholder="Program">
+
+                                        <label class="text-light">School Year</label>
+                                        <div class="d-flex gap-2 mb-3">
+                                            <input type="number" class="form-control" id="startYear"
+                                                placeholder="From (e.g. 1995)" min="1995" max="2099">
+                                            <input type="number" class="form-control" id="endYear"
+                                                placeholder="To (max 4 years gap)" min="1997" max="2103">
+                                        </div>
+                                        <small class="text-warning d-block mb-3" id="yearError"
+                                            style="display:none;"></small>
+                                    </div>
+                                    <div class="col-md-6 step-image img-right">
+                                        <img src="{{ asset('templates/img/register/b.jpeg') }}" alt="Education Image">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STEP 4: Professional -->
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-image img-left">
+                                        <img src="{{ asset('templates/img/register/c.jpeg') }}"
+                                            alt="Professional Image">
+                                    </div>
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Professional</h6>
+
+                                        <select class="form-control mb-3" id="currentStatus">
+                                            <option value="" disabled selected>Status</option>
+                                            <option value="employed">Employed</option>
+                                            <option value="self-employed">Self Employed</option>
+                                            <option value="unemployed">Unemployed</option>
+                                        </select>
+
+                                        <div class="conditional-fields" id="employmentFields">
+                                            <input type="text" class="form-control mb-3" id="organization"
+                                                placeholder="Organization">
+                                            <input type="text" class="form-control mb-3" id="designation"
+                                                placeholder="Designation">
+
+                                            <label class="text-light">Duration</label>
+                                            <div class="d-flex gap-2 mb-3">
+                                                <input type="month" class="form-control" id="workFrom"
+                                                    placeholder="From">
+                                                <input type="month" class="form-control" id="workTo"
+                                                    placeholder="To">
+                                            </div>
+
+                                            <div class="form-check mb-3 text-light">
+                                                <input type="checkbox" class="form-check-input" id="currentWork">
+                                                <label for="currentWork" class="form-check-label">Current Work</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- STEP 5: Security -->
+                            <div class="form-step">
+                                <div class="row align-items-center g-4">
+                                    <div class="col-md-6 step-form">
+                                        <h6 class="mb-3 text-light">Security</h6>
+
+                                        <input type="password" class="form-control mb-3" placeholder="Password">
+
+                                        <input type="password" class="form-control mb-3"
+                                            placeholder="Confirm Password">
+
+                                        <label for="password" class="text-warning mb-1"
+                                            style="font-size: 12px; font-weight: bold;">
+                                            Password requirements:
+                                        </label>
+                                        <ul class="text-warning"
+                                            style="font-size: 12px; margin-top: 0; margin-bottom: 1rem; padding-left: 18px;">
+                                            <li>Minimum 8 characters</li>
+                                            <li>At least one uppercase letter (A-Z)</li>
+                                            <li>At least one lowercase letter (a-z)</li>
+                                            <li>At least one number (0-9)</li>
+                                            <li>At least one special character (e.g. !@#$%^&*)</li>
+                                        </ul>
+
+                                        <div class="form-check mb-3 text-light">
+                                            <input type="checkbox" class="form-check-input" id="termsCheckbox">
+                                            <label for="termsCheckbox" class="terms-label">I agree to the <a
+                                                    href="#" class="text-warning">Terms and
+                                                    Conditions</a></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 step-image img-right">
+                                        <img src="{{ asset('templates/img/register/d.jpeg') }}" alt="Security Image">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- NAV -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <button type="button" class="btn btn-secondary" id="prevBtn"
+                                    disabled>Previous</button>
+                                <button type="button" class="btn btn-danger" id="nextBtn">Next</button>
+                            </div>
+                        </form>
                     </div>
-                </form>
+                </div>
             </div>
         </div>
     </div>
 
-
-
-
     <script>
-        let currentStep = 1;
+        const steps = document.querySelectorAll('.form-step');
+        const indicators = document.querySelectorAll('.step-indicator span');
+        const progressBar = document.getElementById('progressBar');
+        const progressPercent = document.getElementById('progressPercent');
 
-        function showStep(step) {
-            document.querySelectorAll('.step').forEach(div => div.classList.add('d-none'));
-            document.getElementById(`step${step}`).classList.remove('d-none');
+        const startBtn = document.getElementById('startBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+
+        let currentStep = 0;
+
+        // Show/hide inputs based on selections
+        const studentType = document.getElementById('studentType');
+        const cnicInput = document.getElementById('cnicInput');
+        const passportInput = document.getElementById('passportInput');
+
+        const currentCountry = document.getElementById('currentCountry');
+        const otherCountryInput = document.getElementById('otherCountry');
+
+        const degreeSelect = document.getElementById('degreeSelect');
+        const otherDegreeInput = document.getElementById('otherDegree');
+
+        const currentStatus = document.getElementById('currentStatus');
+        const employmentFields = document.getElementById('employmentFields');
+        const workToInput = document.getElementById('workTo');
+        const currentWorkCheckbox = document.getElementById('currentWork');
+
+        const startYearInput = document.getElementById('startYear');
+        const endYearInput = document.getElementById('endYear');
+        const yearError = document.getElementById('yearError');
+
+        function updateProgress() {
+            const total = steps.length - 1;
+            const percent = Math.round(Math.max(currentStep - 1, 0) / total * 100);
+            progressBar.style.width = percent + '%';
+            progressPercent.innerText = percent + '%';
         }
 
-        function updateProgressBar(step) {
-            const progressBar = document.getElementById("progressBar");
-            const percentage = (step / 5) * 100;
-            progressBar.style.width = percentage + "%";
-            progressBar.textContent = `${Math.round(percentage)}%`;
-        }
-
-        function nextStep() {
-            if (currentStep === 2) {
-                const nextBtn = document.getElementById('nextStep2Btn');
-                if (nextBtn.disabled) {
-                    alert('Please enter a valid password before proceeding.');
-                    return;
-                }
-            }
-            if (currentStep < 5) {
-                currentStep++;
-                showStep(currentStep);
-                updateProgressBar(currentStep);
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                currentStep--;
-                showStep(currentStep);
-                updateProgressBar(currentStep);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", () => {
-            showStep(currentStep);
-            updateProgressBar(currentStep);
-
-            const countrySelect = document.getElementById('current_country');
-            const citySelect = document.getElementById('current_city');
-            countrySelect.addEventListener('change', () => {
-                citySelect.disabled = (countrySelect.value !== 'Pakistan');
+        function updateSteps() {
+            steps.forEach((step, idx) => {
+                step.classList.toggle('active', idx === currentStep);
+            });
+            indicators.forEach((ind, idx) => {
+                ind.classList.toggle('active', idx === currentStep);
             });
 
-            const designationSelect = document.getElementById('current_designation');
-            const otherDesignation = document.getElementById('other_designation_input');
-            designationSelect.addEventListener('change', () => {
-                if (designationSelect.value === 'Other') {
-                    otherDesignation.style.display = 'block';
-                    otherDesignation.required = true;
-                } else {
-                    otherDesignation.style.display = 'none';
-                    otherDesignation.required = false;
-                    otherDesignation.value = '';
-                }
-            });
-
-            // Hide "Other" input on page load if not selected
-            if (designationSelect.value !== 'Other') {
-                otherDesignation.style.display = 'none';
-                otherDesignation.required = false;
-                otherDesignation.value = '';
+            prevBtn.disabled = currentStep === 0;
+            if (currentStep === steps.length - 1) {
+                nextBtn.innerText = "Submit";
+            } else {
+                nextBtn.innerText = "Next";
             }
 
-            const startYear = document.getElementById('start_year');
-            const endYear = document.getElementById('end_year');
-            startYear.addEventListener('change', () => {
-                const selectedStart = parseInt(startYear.value);
-                endYear.innerHTML = '<option disabled selected>End Year</option>';
-                for (let y = selectedStart; y <= new Date().getFullYear(); y++) {
-                    const opt = document.createElement('option');
-                    opt.textContent = y;
-                    endYear.appendChild(opt);
-                }
-                endYear.disabled = false;
-            });
+            updateProgress();
+        }
 
-            // Form submit handler to swap designation value if "Other" is selected
-            document.getElementById('multiStepForm').addEventListener('submit', function(e) {
-                if (designationSelect.value === 'Other') {
-                    if (!otherDesignation.value.trim()) {
-                        e.preventDefault();
-                        alert('Please enter your designation.');
-                        otherDesignation.focus();
-                        return false;
-                    }
-                    // Disable the select so its value won't be sent
-                    designationSelect.disabled = true;
-
-                    // Add a hidden input with the other designation value to send instead
-                    let hiddenInput = document.createElement('input');
-                    hiddenInput.type = 'hidden';
-                    hiddenInput.name = 'current_designation';
-                    hiddenInput.value = otherDesignation.value.trim();
-                    this.appendChild(hiddenInput);
+        // Handle click on indicators to jump steps (optional)
+        indicators.forEach(indicator => {
+            indicator.addEventListener('click', () => {
+                const step = parseInt(indicator.getAttribute('data-step'));
+                if (step >= 0 && step < steps.length) {
+                    currentStep = step;
+                    updateSteps();
                 }
             });
         });
 
-        function togglePassword(inputId, iconId) {
-            const input = document.getElementById(inputId);
-            const icon = document.getElementById(iconId);
-            if (input.type === "password") {
-                input.type = "text";
-                icon.classList.replace("fa-eye", "fa-eye-slash");
+        // Start button
+        startBtn.onclick = () => {
+            currentStep = 1;
+            updateSteps();
+        };
+
+        // Next button
+        nextBtn.onclick = () => {
+            if (!validateStep(currentStep)) return;
+
+            if (currentStep < steps.length - 1) {
+                currentStep++;
+                updateSteps();
             } else {
-                input.type = "password";
-                icon.classList.replace("fa-eye-slash", "fa-eye");
+                // Submit form here or further validation
+                alert('Form submitted!');
+                // You can trigger form submission here
             }
+        };
+
+        // Previous button
+        prevBtn.onclick = () => {
+            if (currentStep > 0) {
+                currentStep--;
+                updateSteps();
+            }
+        };
+
+        // Student type change
+        studentType.addEventListener('change', () => {
+            if (studentType.value === 'international') {
+                cnicInput.style.display = 'none';
+                cnicInput.required = false;
+
+                passportInput.style.display = 'block';
+                passportInput.required = true;
+            } else {
+                cnicInput.style.display = 'block';
+                cnicInput.required = true;
+
+                passportInput.style.display = 'none';
+                passportInput.required = false;
+            }
+        });
+
+        // Country select change
+        currentCountry.addEventListener('change', () => {
+            if (currentCountry.value === 'other') {
+                otherCountryInput.style.display = 'block';
+                otherCountryInput.required = true;
+            } else {
+                otherCountryInput.style.display = 'none';
+                otherCountryInput.required = false;
+            }
+        });
+
+        // Degree select change
+        degreeSelect.addEventListener('change', () => {
+            if (degreeSelect.value === 'other') {
+                otherDegreeInput.style.display = 'block';
+                otherDegreeInput.required = true;
+            } else {
+                otherDegreeInput.style.display = 'none';
+                otherDegreeInput.required = false;
+            }
+        });
+
+        // Current status change
+        currentStatus.addEventListener('change', () => {
+            if (currentStatus.value === 'employed' || currentStatus.value === 'self-employed') {
+                employmentFields.style.display = 'block';
+                // Make required
+                document.getElementById('organization').required = true;
+                document.getElementById('designation').required = true;
+                document.getElementById('workFrom').required = true;
+                if (!currentWorkCheckbox.checked) {
+                    workToInput.required = true;
+                }
+            } else {
+                employmentFields.style.display = 'none';
+                // Remove required
+                document.getElementById('organization').required = false;
+                document.getElementById('designation').required = false;
+                document.getElementById('workFrom').required = false;
+                workToInput.required = false;
+            }
+        });
+
+        // Current Work checkbox toggle workTo input
+        currentWorkCheckbox.addEventListener('change', () => {
+            if (currentWorkCheckbox.checked) {
+                workToInput.value = '';
+                workToInput.required = false;
+                workToInput.disabled = true;
+            } else {
+                workToInput.disabled = false;
+                workToInput.required = true;
+            }
+        });
+
+        // Validate School Year inputs
+        function validateSchoolYear() {
+            const startYear = parseInt(startYearInput.value);
+            const endYear = parseInt(endYearInput.value);
+
+            yearError.style.display = 'none';
+
+            if (isNaN(startYear) || isNaN(endYear)) {
+                return false;
+            }
+
+            if (startYear < 1995) {
+                yearError.textContent = 'Start year cannot be before 1995.';
+                yearError.style.display = 'block';
+                return false;
+            }
+
+            if (endYear < startYear + 2) {
+                yearError.textContent = 'Duration must be at least 2 years.';
+                yearError.style.display = 'block';
+                return false;
+            }
+
+            if (endYear > startYear + 4) {
+                yearError.textContent = 'Maximum gap between start and end year is 4 years.';
+                yearError.style.display = 'block';
+                return false;
+            }
+
+            return true;
         }
 
-        function checkStrength(password) {
-            const msg = document.getElementById("strengthMessage");
-            const nextBtn = document.getElementById("nextStep2Btn");
-            const confirmPass = document.getElementById("confirm_password").value;
+        startYearInput.addEventListener('input', () => {
+            validateSchoolYear();
+        });
 
-            const hasUppercase = /[A-Z]/.test(password);
-            const hasNumber = /\d/.test(password);
-            const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(password);
-            const minLength = password.length >= 8;
-            const passwordsMatch = password && confirmPass && password === confirmPass;
+        endYearInput.addEventListener('input', () => {
+            validateSchoolYear();
+        });
 
-            if (!password) {
-                msg.textContent = "";
-                nextBtn.disabled = true;
-                return;
+        // Validate current step inputs before moving next
+        function validateStep(stepIndex) {
+            const currentStepElement = steps[stepIndex];
+            const inputs = currentStepElement.querySelectorAll('input, select, textarea');
+
+            // Basic HTML5 validation
+            for (let input of inputs) {
+                if (!input.checkValidity()) {
+                    input.reportValidity();
+                    return false;
+                }
             }
 
-            if (hasUppercase && hasNumber && hasSpecial && minLength && passwordsMatch) {
-                msg.textContent = "✅ Strong password format met and passwords match!";
-                msg.className = "strength-msg strong";
-                nextBtn.disabled = false;
-            } else {
-                msg.textContent =
-                    "❌ Must contain at least 1 uppercase, 1 number, 1 special character, and be at least 8 characters. Also ensure both passwords match.";
-                msg.className = "strength-msg weak";
-                nextBtn.disabled = true;
+            // Custom validation for school year
+            if (stepIndex === 2) {
+                if (!validateSchoolYear()) {
+                    return false;
+                }
             }
+
+            // Custom validation for employment duration
+            if (stepIndex === 3 && (currentStatus.value === 'employed' || currentStatus.value === 'self-employed')) {
+                if (!currentWorkCheckbox.checked) {
+                    if (!workToInput.value) {
+                        alert('Please enter the "To" date or check "Current Work".');
+                        return false;
+                    }
+                }
+            }
+
+            return true;
         }
 
-        function checkMatch() {
-            const password = document.getElementById("password").value;
-            const confirm = document.getElementById("confirm_password").value;
-            const msg = document.getElementById("matchMessage");
-            const nextBtn = document.getElementById("nextStep2Btn");
-
-            if (!confirm) {
-                msg.textContent = '';
-                nextBtn.disabled = true;
-                return;
-            }
-
-            if (password === confirm) {
-                msg.textContent = "✅ Passwords match";
-                msg.className = "strength-msg strong";
-                checkStrength(password);
-            } else {
-                msg.textContent = "❌ Passwords do not match";
-                msg.className = "strength-msg weak";
-                nextBtn.disabled = true;
-            }
-        }
-
-        function previewProfilePhoto(event) {
-            const input = event.target;
-            const preview = document.getElementById("photoPreview");
-
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-
-                reader.onload = e => {
-                    preview.src = e.target.result;
-                    preview.classList.remove('d-none');
-                };
-
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                preview.src = "#";
-                preview.classList.add('d-none');
-            }
-        }
+        // Initialize UI visibility on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateSteps();
+            studentType.dispatchEvent(new Event('change'));
+            currentCountry.dispatchEvent(new Event('change'));
+            degreeSelect.dispatchEvent(new Event('change'));
+            currentStatus.dispatchEvent(new Event('change'));
+        });
     </script>
-    @include('layouts.templates.footer')
 
+    @include('layouts.templates.footer')
     @include('layouts.templates.script')
