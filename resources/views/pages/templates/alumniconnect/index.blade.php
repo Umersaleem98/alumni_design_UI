@@ -464,8 +464,12 @@
                         <div class="facility-overlay">
                             <h5 class="text-light">Entrepreneurs Club </h5>
                             <p class="text-light">
-                                A community for civil services aspirants and professionals to connect, share insights,
-                                and support each other through mentorship, guidance, and knowledge exchange.
+
+
+                                A space for innovators, founders, and aspiring entrepreneurs to connect, learn, and turn
+                                ideas into impactful ventures through shared experiences and support.
+
+
                             </p>
                         </div>
                     </div>
@@ -494,8 +498,10 @@
                         <div class="facility-overlay">
                             <h5 class="text-light">CSS Club</h5>
                             <p class="text-light">
-                                A space for innovators, founders, and aspiring entrepreneurs to connect, learn, and turn
-                                ideas into impactful ventures through shared experiences and support.
+
+                                A community for civil services aspirants and professionals to connect, share insights,
+                                and support each other through mentorship, guidance, and knowledge exchange.
+
                             </p>
                         </div>
                     </div>

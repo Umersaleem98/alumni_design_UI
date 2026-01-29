@@ -85,7 +85,8 @@
 
                     <p class="mt-3 text-dark animate__animated animate__fadeInUp animate__delay-4s">
                         As a NUST alumnus, you have the opportunity to give back through mentorship,
-                        industry connections, or financial support, and make a lasting impact on the next generation.
+                        industry connections, or financial support, and make a lasting impact on the next cohort of
+                        students.
                     </p>
 
                     <div class="fw-semibold mt-3 text-dark animate__animated animate__fadeInUp animate__delay-5s">

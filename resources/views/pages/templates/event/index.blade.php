@@ -12,8 +12,8 @@
         font-weight: 600;
         text-align: center;
         padding-bottom: 6px;
-        border-bottom: 2px solid #800000;
-        color: #800000;
+        border-bottom: 2px solid #FBAF17;
+        color: #FBAF17;
     }
 
     .day {

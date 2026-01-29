@@ -158,10 +158,10 @@
         <div class="container">
             <h1 class="mb-3 animated text-light slideInDown">Alumni Privileges</h1>
             <p class="mb-3 text-light">
-                Access lifelong Benefits, facilities, and exclusive opportunities
+                Access lifelong benefits, facilities, and exclusive opportunities.
             </p>
             <p class="mb-3 text-light">
-                All privileges unlocked through your alumni card
+                All privileges unlocked through your alumni card.
             </p>
             {{-- <button class="btn btn-danger btn-sm">View Upcoming Events</button> --}}
         </div>
