@@ -71,17 +71,9 @@
         </div>
     </section>
 
-    {{-- <section class="py-5 bg-light">
-        <div class="container text-center">
-            <h3 class="fw-bold mb-3">About the Alumni Affairs Office</h3>
-            <p class="text-muted col-md-8 mx-auto">
-                Alumni engagement, support services, and alumni engagement thrives,
-                leaderships and community donations.
-            </p>
-        </div>
-    </section> --}}
 
-    <section class="py-5 text-white" style="background:#1e2a44;">
+
+    <section class="py-5 text-white" style="background:#01273E;">
         <div class="container text-center">
             <h1 class="fw-bold text-light">New to NUST Alumni?</h1>
             <p class="mb-4">
@@ -98,6 +90,17 @@
 
             <div class="row g-4">
 
+                <div class="col-md-4">
+                    <div class="card team-card h-100 text-center">
+                        <img src="{{ asset('templates/img/team/21.png') }}" class="card-img-top team-img"
+                            alt="Ameer Hamza">
+
+                        <div class="card-body">
+                            <h6 class="fw-semibold mb-1">Arooba Gillani</h6>
+                            <p class="text-muted mb-0">Director, UAO</p>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-4">
                     <div class="card team-card h-100 text-center">
                         <img src="{{ asset('templates/img/team/20.png') }}" class="card-img-top team-img"

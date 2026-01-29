@@ -22,7 +22,7 @@
 
                 <p class="mb-2">
                     <i class="fas fa-map-marker-alt me-2"></i>
-                    Alumni Office, 1st Floor
+                    Alumni Office, 1st Floor,
                     RIC Building, NUST,
                     Sector H-12, Islamabad, Pakistan
                 </p>

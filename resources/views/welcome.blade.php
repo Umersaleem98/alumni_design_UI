@@ -11,6 +11,7 @@
     @include('layouts.templates.alumni-event')
     @include('layouts.templates.advance-search')
     @include('layouts.templates.shap-the-future')
+    @include('layouts.templates.cta')
 
     @include('layouts.templates.footer')
 
