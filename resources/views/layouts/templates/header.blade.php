@@ -71,7 +71,7 @@
                 <a href="{{ route('register.index') }}" class="btn btn-danger btn-sm fw-semibold">
                     Register
                 </a>
-                <a href="{{ url('login') }}" class="btn btn-danger btn-sm fw-semibold">
+                <a href="{{ route('login.index') }}" class="btn btn-danger btn-sm fw-semibold">
                     Login
                 </a>
             </div>

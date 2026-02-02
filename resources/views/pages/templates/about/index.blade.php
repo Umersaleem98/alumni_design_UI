@@ -161,7 +161,7 @@
         }
     </style>
 
-    <section class="py-5 text-white" style="background:#1e2a44;">
+    <section class="py-5 text-white" style="background: #01273E;">
         <div class="container">
             <h1 class="fw-bold text-light text-center mb-4">Office Details</h1>
 

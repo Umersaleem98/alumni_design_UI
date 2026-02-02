@@ -142,21 +142,21 @@
                         <div class="col-12">
                             <div class="d-flex align-items-center p-4 bg-white shadow-sm rounded">
                                 <i class="fa fa-user-graduate fa-2x text-danger me-3"></i>
-                                <h5 class="fw-semibold mb-0">Guide Students</h5>
+                                <h6 class="fw-semibold mb-0">Guide Students</h6>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="d-flex align-items-center p-4 bg-white shadow-sm rounded">
                                 <i class="fa fa-chalkboard-teacher fa-2x text-danger me-3"></i>
-                                <h5 class="fw-semibold mb-0">Share Experience</h5>
+                                <h6 class="fw-semibold mb-0">Share Experience</h6>
                             </div>
                         </div>
 
                         <div class="col-12">
                             <div class="d-flex align-items-center p-4 bg-white shadow-sm rounded">
                                 <i class="fa fa-hand-holding-heart fa-2x text-danger me-3"></i>
-                                <h5 class="fw-semibold mb-0">Create Impact</h5>
+                                <h6 class="fw-semibold mb-0">Create Impact</h6>
                             </div>
                         </div>
 

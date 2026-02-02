@@ -21,3 +21,4 @@ Route::get('about/index', [AboutUsController::class, 'index'])->name('about.inde
 Route::get('contact/index', [ContactController::class, 'index'])->name('contact.index');
 
 Route::get('register/index', [AuthController::class, 'register'])->name('register.index');
+Route::get('login/index', [AuthController::class, 'login'])->name('login.index');

@@ -295,7 +295,7 @@
     </section>
 
 
-    <section class="py-5 alumni-cta">
+    <section class="py-5 alumni-cta" style="background: #01273E">
         <div class="container text-center">
 
             <div class="cta-divider mb-3"></div>
