@@ -20,7 +20,7 @@
                     </p>
 
                     <div class="fw-semibold mt-3 animate__animated animate__fadeInUp animate__delay-4s">
-                        <a href="#" class="btn btn-danger ">Explore More</a>
+                        <a href="#" class="btn btn-danger fs-4" style="border-radius: 8px;">Explore More</a>
                     </div>
                 </div>
             </div>
@@ -44,7 +44,7 @@
                     </p>
 
                     <div class="fw-semibold mt-3 animate__animated animate__fadeInUp animate__delay-4s">
-                        <a href="#" class="btn btn-warning text-dark">Explore More</a>
+                        <a href="#" class="btn btn-warning text-dark fs-4" style="border-radius: 8px;">Explore More</a>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                     </p>
 
                     <div class="fw-semibold mt-3 animate__animated animate__fadeInUp animate__delay-5s">
-                        <a href="#" class="btn btn-dark">Explore More</a>
+                        <a href="#" class="btn btn-dark fs-4" style="border-radius: 8px;">Explore More</a>
                     </div>
                 </div>
             </div>

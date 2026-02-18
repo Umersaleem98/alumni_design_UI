@@ -237,7 +237,7 @@
 
             <!-- Button -->
             <div class="text-center mt-5">
-                <a href="#" class="btn btn-danger px-5 py-2">
+                <a href="#" class="btn btn-danger py-2 fs-4" style="border-radius: 8px;">
                     Support Through Industry Engagement
                 </a>
             </div>
@@ -292,8 +292,7 @@
 
             <!-- CTA Button -->
             <div class="text-center mt-5">
-                <a href="https://advancement.nust.edu.pk/#/" class="btn btn-lg px-5 text-white"
-                    style="background-color:#7a1f2b; border-radius: 8px;">
+                <a href="https://advancement.nust.edu.pk/#/" class="btn btn-lg fs-4 btn-danger" style="border-radius: 8px;">
                     Contribute to the Endowment Fund
                 </a>
             </div>

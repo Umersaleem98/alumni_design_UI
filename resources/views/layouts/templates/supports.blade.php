@@ -95,7 +95,7 @@
             <div class="row g-4 justify-content-center">
 
                 <div class="col-12 text-center">
-                    <a href="#" class="btn btn-danger fw-semibold px-4" style="border-radius: 8px;">
+                    <a href="#" class="btn btn-danger fw-semibold fs-4" style="border-radius: 8px;">
                         Explore More
                     </a>
                 </div>

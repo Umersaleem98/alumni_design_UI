@@ -5,6 +5,6 @@
              It's never too late to reconnect. Once you register, you'll be able
              to access alumni services and connect with fellow graduates.
          </p>
-         <a href="#" class="btn btn-danger px-4">Register</a>
+         <a href="#" class="btn btn-danger fs-4" style="border-radius: 8px;">Register</a>
      </div>
  </section>
